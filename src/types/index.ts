@@ -15,8 +15,7 @@ export interface IProjectProps {
   technologies: string[];
   slug: string;
   demo: string;
-  toolset: string;
+  toolset: string[];
   updatedAt: string;
   operated: string;
-
 }

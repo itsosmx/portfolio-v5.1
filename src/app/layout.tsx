@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cairo, Poppins } from "next/font/google";
 import "@/styles/globals.css";
-import { Navbar } from "@/components";
+import { BackgroundCursor } from "@/components";
 
 const inter = Poppins({ weight: ["100", "200", "300", "400", "500", "700", "600", "900", "800"], subsets: ["latin"], variable: "--font-main" });
 // const CairoFont = Cairo({ variable: "--font-main", subsets: ["arabic", "latin"] });
@@ -19,8 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body>
-        <Navbar />
-        {children}
+        <BackgroundCursor>{children}</BackgroundCursor>
       </body>
     </html>
   );
