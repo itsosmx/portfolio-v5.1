@@ -22,6 +22,9 @@ My personal portfolio [osmx.me](https://osmx.me/) which features some of my gith
 # Getting Started
 
 - Clone down this repository
+- create `.env` file in the root directory
+- add `GRAPHQL_ENDPOINT` you can get end point for [Hygraph]([auth.hygraph.com](https://hygraph.com/))
+- and `EMAILJS_KEY` to get emailjs key go to [EmailJs](https://www.emailjs.com/)
 - run `npm install` 
 - To run the project `npm run dev`
 
