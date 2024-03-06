@@ -43,3 +43,45 @@ export async function getProjects() {
     console.error(error);
   }
 }
+export async function getProjectBySlug(slug: string) {
+  try {
+    const query = gql`
+    query Projects {
+      projectsIdConnection(where: {slug: ${slug}}) {
+        edges {
+          node {
+            title
+            github
+            createdAt
+            description {
+              html
+              text
+            }
+            headline
+            id
+            developedAt
+            demo
+            slug
+            technologies
+            thumbnail {
+              url
+            }
+            toolset
+            updatedAt
+            operated
+          }
+        }
+      }
+    }
+    
+    `
+    const data = await request(endpoint, query);
+    //@ts-ignore
+    const project = Object.values(data?.projectsIdConnection?.edges).map(({ node }) => node);
+    //@ts-ignore
+
+    return project as IProjectProps;
+  } catch (error) {
+    console.error(error);
+  }
+}
