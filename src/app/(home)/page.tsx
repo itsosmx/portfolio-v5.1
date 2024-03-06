@@ -33,7 +33,7 @@ export default async function Home() {
             ))}
           </div>
         </div>
-        <div className="col-span-1 leading-8 lg:h-full h-screen flex flex-col justify-between text-slate-300">
+        <div className="col-span-1 leading-8 lg:h-full h-screen hidden lg:flex flex-col justify-between text-slate-300 ">
           <p>
             My journey began in 2015 when i discover something called blogger, where I shared my passion for technology through writing technical
             articles. But as I delved deeper into the world of blogging, I became fascinated with the idea of creating my own website. And so, I
