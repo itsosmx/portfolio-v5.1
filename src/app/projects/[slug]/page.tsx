@@ -1,3 +1,4 @@
+import { PageHeader, SlideIn } from "@/components";
 import { getProjects } from "@/lib/actions";
 import { cn } from "@/utils";
 import Image from "next/image";
@@ -13,9 +14,10 @@ export default async function ProjectSlug({ params }: { params: { slug: string }
   }
 
   return (
-    <div className="flex p-16 flex-col">
+    <div className="flex p-16 flex-col min-h-screen">
+      <PageHeader className="my-4" previous="All Projects" title={post.title} path="/projects" />
       <div className="w-full justify-end gap-4 flex lg:flex-row-reverse flex-col-reverse">
-        <div className="flex flex-col flex-grow justify-between lg:max-w-prose max-w-none">
+        <SlideIn className="flex flex-col flex-grow justify-between lg:max-w-prose max-w-none">
           <h1 className="text-2xl font-bold">{post.title}</h1>
           <p className="text-gray text-sm capitalize">{post.headline}</p>
           <div className="flex flex-col my-4">
@@ -54,12 +56,12 @@ export default async function ProjectSlug({ params }: { params: { slug: string }
               </span>
             </div>
           </div>
-        </div>
-        <div className="lg:w-1/2 w-full relative">
+        </SlideIn>
+        <SlideIn direction={-1} className="lg:w-1/2 w-full relative">
           <Image src={post.thumbnail?.url} fill alt="image" className="size-full object-cover" />
-        </div>
+        </SlideIn>
       </div>
-      <div className="flex items-center gap-4 mobile:flex-col mt-8">
+      <SlideIn axis="y" className="flex items-center gap-4 mobile:flex-col mt-8">
         <div className="w-[70%] mobile:w-full">
           <h3 className="text-2xl font-bold underline mb-2">About :-</h3>
           {post.description && <p className="project-description" dangerouslySetInnerHTML={{ __html: post.description.html }} />}
@@ -69,7 +71,7 @@ export default async function ProjectSlug({ params }: { params: { slug: string }
             target="_blank"
             className={cn(
               `bg-slate-400 text-slate-900 w-full p-8 flex items-center justify-between rounded-xl shadow-button text-2xl font-semibold`,
-              !post.demo && "opacity-50"
+              !post.demo && +"opacity-50"
             )}
             href={post.demo ? post.demo : "#"}>
             <p>{post.demo ? "Live Demo" : "Not available"}</p>
@@ -86,7 +88,7 @@ export default async function ProjectSlug({ params }: { params: { slug: string }
             <FaGithub />
           </a>
         </div>
-      </div>
+      </SlideIn>
     </div>
   );
 }
