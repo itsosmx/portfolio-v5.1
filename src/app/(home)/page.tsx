@@ -1,3 +1,4 @@
+import { Highlight } from "@/components";
 import { HeroParallax } from "@/components/shared/Parallax";
 import { TextGenerateEffect } from "@/components/shared/TextGenerate";
 import { getProjects } from "@/lib/actions";
@@ -14,8 +15,8 @@ export default async function Home() {
         <div className="flex flex-col justify-between col-span-1 lg:h-full h-screen">
           <div>
             <TextGenerateEffect className="font-bold text-6xl text-slate-200" words="Osama Hussein"></TextGenerateEffect>
-            <TextGenerateEffect className="font-medium text-2xl pl-1 text-slate-200" words="Full Stack Engineer"></TextGenerateEffect>
-            <TextGenerateEffect className="font-bold capitalize pl-1 text-slate-300" words="I build websites, mobile applications, and unity games" />
+            <TextGenerateEffect className="font-medium text-2xl pl-1 text-slate-400" words="Software Engineer"></TextGenerateEffect>
+            <TextGenerateEffect className="font-bold capitalize pl-1 text-slate-500" words="I build websites, mobile applications, and unity games" />
           </div>
           <div className="gap-2 flex flex-col text-stone-100">
             {links.routes.map((route) => (
@@ -57,13 +58,6 @@ export default async function Home() {
           </p>
         </div>
       </section>
-      {/* <WavyBackground colors={["#424242", "#969696"]} blur={100}>
-        <Logo />
-        <div className="absolute bottom-1/4 left-0 right-0 text-center">
-          <TextGenerateEffect className="text-sm lg:text-2xl text-nowrap" words="Software Engineer Developing Websites, Applications, and Games" />
-          <TextGenerateEffect className="text-sm lg:text-xl text-nowrap" words="Every line of code is an opportunity to create something amazing" />
-        </div>
-      </WavyBackground> */}
       <HeroParallax
         products={
           projects?.map((project) => {
@@ -76,13 +70,5 @@ export default async function Home() {
         }
       />
     </div>
-  );
-}
-
-function Highlight({ children, ...props }: { children: React.ReactNode }) {
-  return (
-    <span className="font-bold" {...props}>
-      {children}
-    </span>
   );
 }

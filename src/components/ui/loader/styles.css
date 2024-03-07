@@ -18,7 +18,7 @@
   height: 100%;
   position: absolute;
   width: 100%;
-  @apply border-slate-600 border-[2.2px] border-solid bg-slate-200;
+  @apply border-slate-600 border-[2.2px] border-solid bg-glass-400;
 }
 
 .spinner div:nth-of-type(1) {

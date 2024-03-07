@@ -15,8 +15,8 @@ const links = {
       "description": "Sample projects"
     },
     {
-      "slug": "/toolbox",
-      "name": "Toolbox",
+      "slug": "/skills",
+      "name": "Skills",
       "description": "What is included in my brain!"
     },
     {

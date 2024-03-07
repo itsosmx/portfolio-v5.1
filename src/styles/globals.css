@@ -17,9 +17,8 @@
 }
 
 body {
-  
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-  @apply bg-stone-950 text-slate-200 antialiased
+  @apply bg-stone-950 antialiased text-slate-200 font-main;
 }
 
 ::-webkit-scrollbar {
@@ -29,5 +28,8 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .glass-box {
+    @apply bg-glass-200 shadow-sm border-[1px] border-solid border-glass-300 hover:border-glass-500 outline-none;
   }
 }

@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Cairo, Poppins } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "@/styles/globals.css";
 import { BackgroundCursor } from "@/components";
 
-const inter = Poppins({ weight: ["100", "200", "300", "400", "500", "700", "600", "900", "800"], subsets: ["latin"], variable: "--font-main" });
-// const CairoFont = Cairo({ variable: "--font-main", subsets: ["arabic", "latin"] });
+const roboto = Roboto({ weight: ["100", "300", "400", "500", "700", "900"], subsets: ["latin"], variable: "--font-main", display: "swap" });
 
 export const metadata: Metadata = {
   title: "OSMX",
@@ -17,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${roboto.variable}`}>
       <body>
         <BackgroundCursor>{children}</BackgroundCursor>
       </body>

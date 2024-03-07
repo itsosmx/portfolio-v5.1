@@ -7,10 +7,17 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontFamily: {
-      'body': ['var(--font-main'],
-    },
     extend: {
+      colors: {
+        "glass-100": "rgba(255, 255, 255, 0.1)",
+        "glass-200": "rgba(255, 255, 255, 0.2)",
+        "glass-300": "rgba(255, 255, 255, 0.3)",
+        "glass-400": "rgba(255, 255, 255, 0.4)",
+        "glass-500": "rgba(255, 255, 255, 0.5)",
+      },
+      fontFamily: {
+        'main': ['var(--font-main)'],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
