@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "@/styles/globals.css";
 import { BackgroundCursor } from "@/components";
+import { Analytics } from "@vercel/analytics/react";
 
 const roboto = Roboto({ weight: ["100", "300", "400", "500", "700", "900"], subsets: ["latin"], variable: "--font-main", display: "swap" });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en" className={`${roboto.variable}`}>
       <body>
         <BackgroundCursor>{children}</BackgroundCursor>
+        <Analytics />
       </body>
     </html>
   );

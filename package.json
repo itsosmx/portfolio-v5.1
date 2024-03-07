@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emailjs/nodejs": "^2.2.0",
+    "@vercel/analytics": "^1.2.2",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.6",
     "graphql-request": "^6.1.0",
