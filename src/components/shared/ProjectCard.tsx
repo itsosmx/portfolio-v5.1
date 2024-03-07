@@ -13,11 +13,12 @@ export default function ProjectCard({ project }: { project: IProjectProps }) {
       initial={{ opacity: 0, y: 300 }}
       whileInView={{ opacity: 1 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}>
+      transition={{ duration: 1 }}
+      className="group">
       <Link
         href={`/projects/${project.slug}`}
         key={project.id}
-        className="flex flex-col lg:flex-row gap-4 hover:bg-red-800 hover:ring-2 hover:ring-red-600 transition-all duration-500 p-4 cursor-pointer shadow-md">
+        className="flex flex-col lg:flex-row gap-4 group-hover:bg-accent group-hover:ring-2 group-hover:ring-secondary hover:text-background transition-all duration-500 p-4 cursor-pointer shadow-md">
         <div className="min-h-40 min-w-72 relative">
           <Image src={project.thumbnail.url} alt="thumbnail" fill className="object-contain size-full" />
         </div>
@@ -27,7 +28,9 @@ export default function ProjectCard({ project }: { project: IProjectProps }) {
           <div className="flex-1"></div>
           <div className="flex gap-1 flex-wrap lg:gap-4">
             {project.toolset?.map((tool) => (
-              <span className="bg-slate-300 text-slate-700 font-semibold p-1 px-4 rounded-full text-sm">{tool}</span>
+              <span className="bg-accent text-background group-hover:text-accent delay-75 group-hover:bg-background font-semibold p-1 px-4 rounded-full text-sm">
+                {tool}
+              </span>
             ))}
           </div>
         </div>

@@ -25,7 +25,7 @@ export default async function ProjectSlug({ params }: { params: { slug: string }
             <div className="flex gap-4 flex-wrap mt-4">
               {!!post.technologies?.length &&
                 post.technologies?.map((item) => (
-                  <span className="bg-slate-400 shadow-md text-slate-950 font-semibold px-4 p-1 rounded-lg text-sm" key={item}>
+                  <span className="shadow-md bg-accent text-secondary font-semibold px-4 p-1 rounded-lg text-sm" key={item}>
                     {item}
                   </span>
                 ))}
@@ -36,7 +36,7 @@ export default async function ProjectSlug({ params }: { params: { slug: string }
             <div className="flex gap-4 flex-wrap mt-4">
               {!!post.toolset?.length &&
                 post.toolset?.map((item) => (
-                  <span className="bg-slate-400 shadow-md text-slate-950 font-semibold px-4 p-1 rounded-lg text-sm" key={item}>
+                  <span className="shadow-md bg-accent text-secondary font-semibold px-4 p-1 rounded-lg text-sm" key={item}>
                     {item}
                   </span>
                 ))}
@@ -70,7 +70,7 @@ export default async function ProjectSlug({ params }: { params: { slug: string }
           <a
             target="_blank"
             className={cn(
-              `bg-slate-400 text-slate-900 w-full p-8 flex items-center justify-between rounded-xl shadow-button text-2xl font-semibold`,
+              `bg-accent text-secondary w-full p-8 flex items-center justify-between rounded-xl shadow-button text-2xl font-semibold`,
               !post.demo && +"opacity-50"
             )}
             href={post.demo ? post.demo : "#"}>
@@ -80,7 +80,7 @@ export default async function ProjectSlug({ params }: { params: { slug: string }
           <a
             target="_blank"
             className={cn(
-              `bg-slate-400 text-slate-900 w-full p-8 flex items-center justify-between rounded-xl shadow-button text-2xl font-semibold`,
+              `bg-accent text-secondary w-full p-8 flex items-center justify-between rounded-xl shadow-button text-2xl font-semibold`,
               !post.github && "opacity-50"
             )}
             href={post.github ? post.github : "#"}>
