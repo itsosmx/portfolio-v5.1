@@ -1,8 +1,36 @@
+"use client";
+
 import React from "react";
 import { BackButton, SlideIn } from "@/components";
-import { sendEmail } from "@/lib/actions/emails";
+// import { sendEmail } from "@/lib/actions/emails";
+import emailjs, { init } from "@emailjs/browser";
+import toast from "react-hot-toast";
+
+init(process.env.NEXT_PUBLIC_EMAILJS_KEY as string);
 
 export default function Contact() {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    try {
+      e.preventDefault();
+      toast.promise(
+        emailjs.sendForm(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+          e.target as HTMLFormElement,
+          process.env.NEXT_PUBLIC_EMAILJS_KEY as string
+        ),
+        {
+          loading: "Sending...",
+          success: "Message sent successfully!",
+          error: "Failed to send message, please try again later.",
+        }
+      );
+    } catch (error) {
+      console.log("FAILED...", error);
+      toast.error("Failed to send message, please try again later.");
+    }
+  };
+
   return (
     <div className="flex justify-center items-center gap-4 flex-col w-full mobile:mb-8 h-screen">
       <BackButton />
@@ -10,7 +38,7 @@ export default function Contact() {
         <h1 className="text-4xl font-bold">Thanks for taking the time to reach out.</h1>
         <p className="text-2xl tracking-widest">How can I help you today?</p>
       </div>
-      <form className="flex flex-col gap-4 lg:w-1/2 w-full px-4" action={sendEmail}>
+      <form className="flex flex-col gap-4 lg:w-1/2 w-full px-4" onSubmit={sendEmail}>
         <div className="flex lg:flex-row flex-col">
           <SlideIn direction={-1} className="flex flex-col p-2 lg:w-1/2 w-full">
             <label htmlFor="name">Name</label>
@@ -34,10 +62,14 @@ export default function Contact() {
             className="rounded-lg p-4 glass-box outline-none"
           />
         </SlideIn>
-        <SlideIn axis="y" delay={0.4} className="w-full">
-          <button type="submit" className="rounded-lg p-4 glass-box mx-2 text-center w-full hover:scale-105 transition-all active:scale-95">
-            Submit
-          </button>
+        <SlideIn
+          axis="y"
+          delay={0.4}
+          renderAs="button"
+          // @ts-ignore
+          type="submit"
+          className="rounded-lg p-4 glass-box mx-2 text-center hover:scale-105 transition-all active:scale-95">
+          Submit
         </SlideIn>
         <SlideIn axis="y" delay={0.5} className="flex gap-4 text-center items-center justify-center">
           <p>or email me directly at</p>

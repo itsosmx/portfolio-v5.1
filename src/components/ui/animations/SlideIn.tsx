@@ -10,7 +10,16 @@ interface SlideInProps extends React.HTMLAttributes<HTMLDivElement> {
   renderAs?: React.ElementType;
 }
 
-export default function SlideIn({ className, axis = "x", children, direction = 1, delay = 0.2, duration = 0.5, renderAs = "div" }: SlideInProps) {
+export default function SlideIn({
+  className,
+  axis = "x",
+  children,
+  direction = 1,
+  delay = 0.2,
+  duration = 0.5,
+  renderAs = "div",
+  ...props
+}: SlideInProps) {
   // @ts-ignore
   const Tag = motion[renderAs as string];
   return (
@@ -18,7 +27,8 @@ export default function SlideIn({ className, axis = "x", children, direction = 1
       className={className}
       initial={{ opacity: 0, [axis as string]: direction * 50 }}
       animate={{ opacity: 1, [axis as string]: 0 }}
-      transition={{ duration, delay }}>
+      transition={{ duration, delay }}
+      {...props}>
       {children}
     </Tag>
   );
