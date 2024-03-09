@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
+
+// const withTM = require("next-transpile-modules")([
+//   "three",
+//   "drei",
+//   "react-three-fiber",
+// ])
 const nextConfig = {
   images: {
     dangerouslyAllowSVG: true,

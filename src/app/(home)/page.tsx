@@ -3,6 +3,7 @@ import { HeroParallax } from "@/components/shared/Parallax";
 import { TextGenerateEffect } from "@/components/shared/TextGenerate";
 import { getProjects } from "@/lib/actions";
 import links from "@/utils/links";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -34,6 +35,9 @@ export default async function Home() {
             ))}
           </SlideIn>
         </div>
+        {/* <div className="col-span-1 leading-8 lg:h-full h-screen hidden lg:flex flex-col justify-between text-slate-300 relative">
+          <Image src="/me2.png" fill alt="Osama Hussein" className="-scale-x-[1] absolute object-contain" />
+        </div> */}
         <div className="col-span-1 leading-8 lg:h-full h-screen hidden lg:flex flex-col justify-between text-slate-300">
           <SlideIn delay={0.3}>
             My journey began in 2015 when i discover something called blogger, where I shared my passion for technology through writing technical
