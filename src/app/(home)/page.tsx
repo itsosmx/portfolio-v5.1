@@ -12,8 +12,8 @@ export default async function Home() {
 
   return (
     <div>
-      <section className="lg:h-screen p-16 grid lg:grid-cols-2 grid-cols-1 gap-4">
-        <div className="flex flex-col justify-between col-span-1 lg:h-full h-screen">
+      <section className="lg:h-screen grid lg:grid-cols-2 grid-cols-1 gap-4">
+        <div className="flex flex-col justify-between col-span-1 lg:h-full h-screen p-16">
           <SlideIn direction={-1}>
             <TextGenerateEffect className="font-bold text-6xl text-slate-200" words="Osama Hussein"></TextGenerateEffect>
             <TextGenerateEffect className="font-medium text-2xl pl-1 text-slate-400" words="Software Engineer"></TextGenerateEffect>
@@ -35,10 +35,18 @@ export default async function Home() {
             ))}
           </SlideIn>
         </div>
-        {/* <div className="col-span-1 leading-8 lg:h-full h-screen hidden lg:flex flex-col justify-between text-slate-300 relative">
-          <Image src="/me2.png" fill alt="Osama Hussein" className="-scale-x-[1] absolute object-contain" />
-        </div> */}
-        <div className="col-span-1 leading-8 lg:h-full h-screen hidden lg:flex flex-col justify-between text-slate-300">
+        <SlideIn className="col-span-1 leading-8 lg:h-full h-screen hidden lg:flex flex-col justify-between items-center relative">
+          <Image src="/mainIconsdark.svg" fill alt="Osama Hussein" className="absolute object-contain" />
+          <video
+            loop
+            muted
+            autoPlay
+            playsInline
+            preload="false"
+            className="w-full h-full object-fill opacity-5 -z-10 rotate-90"
+            src="/encryption.webm"></video>
+        </SlideIn>
+        {/* <div className="col-span-1 leading-8 lg:h-full h-screen hidden lg:flex flex-col justify-between text-slate-300">
           <SlideIn delay={0.3}>
             My journey began in 2015 when i discover something called blogger, where I shared my passion for technology through writing technical
             articles. But as I delved deeper into the world of blogging, I became fascinated with the idea of creating my own website. And so, I
@@ -60,7 +68,7 @@ export default async function Home() {
             Discord API offered.The bot has spread widely, reaching more than <Highlight>300,000 user</Highlight>. The process was challenging, but it
             taught me invaluable lessons about determination, patience, and creativity.
           </SlideIn>
-        </div>
+        </div> */}
       </section>
       <HeroParallax
         products={
