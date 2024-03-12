@@ -32,7 +32,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex justify-center items-center gap-4 flex-col w-full mobile:mb-8 h-screen">
+    <div className="flex justify-center items-center gap-4 flex-col w-full py-16 lg:h-screen">
       <BackButton />
       <div className="text-center">
         <h1 className="text-4xl font-bold">Thanks for taking the time to reach out.</h1>

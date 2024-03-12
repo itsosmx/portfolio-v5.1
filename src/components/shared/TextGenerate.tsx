@@ -5,6 +5,7 @@ import { cn } from "@/utils";
 
 export const TextGenerateEffect = ({ words, className }: { words: string; className?: string }) => {
   const [scope, animate] = useAnimate();
+  
   let wordsArray = words.split(" ");
   useEffect(() => {
     animate(

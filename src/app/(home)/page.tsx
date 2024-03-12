@@ -13,11 +13,14 @@ export default async function Home() {
   return (
     <div>
       <section className="lg:h-screen grid lg:grid-cols-2 grid-cols-1 gap-4">
-        <div className="flex flex-col justify-between col-span-1 lg:h-full h-screen p-16">
-          <SlideIn direction={-1}>
-            <TextGenerateEffect className="font-bold text-6xl text-slate-200" words="Osama Hussein"></TextGenerateEffect>
-            <TextGenerateEffect className="font-medium text-2xl pl-1 text-slate-400" words="Software Engineer"></TextGenerateEffect>
-            <TextGenerateEffect className="font-bold capitalize pl-1 text-slate-500" words="I build websites, mobile applications, and unity games" />
+        <div className="flex flex-col justify-between col-span-1 lg:h-full h-screen lg:p-16 p-8">
+          <SlideIn delay={0} direction={-1}>
+            <TextGenerateEffect className="font-bold text-7xl text-slate-200" words="Osama Hussein" />
+            <TextGenerateEffect className="font-bold uppercase text-4xl pl-1 text-accent" words="Software Engineer" />
+            <TextGenerateEffect
+              className="font-light capitalize pl-1 text-wrap text-xl text-accent"
+              words="Specializing in Website Development, Mobile Applications, and Unity Games"
+            />
           </SlideIn>
           <SlideIn direction={-1} delay={0.3} className="gap-2 flex flex-col text-stone-100">
             {links.routes.map((route) => (
@@ -46,29 +49,6 @@ export default async function Home() {
             className="w-full h-full object-fill opacity-5 -z-10 rotate-90"
             src="/encryption.webm"></video>
         </SlideIn>
-        {/* <div className="col-span-1 leading-8 lg:h-full h-screen hidden lg:flex flex-col justify-between text-slate-300">
-          <SlideIn delay={0.3}>
-            My journey began in 2015 when i discover something called blogger, where I shared my passion for technology through writing technical
-            articles. But as I delved deeper into the world of blogging, I became fascinated with the idea of creating my own website. And so, I
-            embarked on a journey of self-discovery, learning <Highlight>HTML</Highlight>, <Highlight>CSS</Highlight>, and{" "}
-            <Highlight>JavaScript</Highlight> to bring my vision to life.
-          </SlideIn>
-
-          <SlideIn delay={0.5}>
-            As I experimented with building simple websites, I found myself asking,
-            <span className="font-bold text-3xl">What else can I do ?</span> My curiosity led me to explore APIs, and that's when everything changed.
-            I discovered <Highlight>Node.js</Highlight> and began developing Discord Applications (Bots) using Discord API, which proved to be a
-            game-changer for me. The idea of being able to create something that people could use and enjoy was incredibly satisfying.
-          </SlideIn>
-
-          <SlideIn delay={0.7}>
-            With each new project, I gained more experience and skills. I taught myself <Highlight>Mongoose</Highlight>,{" "}
-            <Highlight>React.js</Highlight>, <Highlight>React Native</Highlight>, <Highlight>Python</Highlight>, <Highlight>Kotlin</Highlight>, and
-            other technologies, constantly expanding my toolbox. One of my proudest achievements was creating a Discord bot that could do anything the
-            Discord API offered.The bot has spread widely, reaching more than <Highlight>300,000 user</Highlight>. The process was challenging, but it
-            taught me invaluable lessons about determination, patience, and creativity.
-          </SlideIn>
-        </div> */}
       </section>
       <HeroParallax
         products={
