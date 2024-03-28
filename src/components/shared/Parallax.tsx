@@ -67,9 +67,9 @@ export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
       <h1 className="text-2xl md:text-5xl font-bold dark:text-white">
-        Programming isn't about what you know <br /> it's about what you can figure out.
+        What is more than code thing? <br /> Code everything.
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200"> - Chris Pine</p>
+      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">Learning is a lifelong process</p>
     </div>
   );
 };
