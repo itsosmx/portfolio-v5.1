@@ -22,7 +22,7 @@ export default function page() {
           Hi, I’m OSMX. Nice to meet you.
         </SlideIn>
         <SlideIn axis="y" className="text-gray lg:text-xl text-md">
-          Software Engineer Designing and Developing Websites, Applications and Games
+          Software Developer Designing and Developing Websites, Applications and Games
         </SlideIn>
       </div>
       <div className="w-full px-4 flex flex-col gap-8 text-2xl mb-8 tracking-wide font-play">

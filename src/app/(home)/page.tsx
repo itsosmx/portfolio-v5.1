@@ -16,7 +16,7 @@ export default async function Home() {
         <div className="flex flex-col justify-between col-span-1 lg:h-full h-screen lg:p-16 p-8">
           <SlideIn delay={0} direction={-1}>
             <TextGenerateEffect className="font-bold text-7xl text-slate-200" words="Osama Hussein" />
-            <TextGenerateEffect className="font-bold uppercase text-4xl pl-1 text-accent" words="Software Engineer" />
+            <TextGenerateEffect className="font-bold uppercase text-4xl pl-1 text-accent" words="Software Developer" />
             <TextGenerateEffect
               className="font-light capitalize pl-1 text-wrap text-xl text-accent"
               words="Specializing in Website Development, Mobile Applications, and Unity Games"
