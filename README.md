@@ -10,7 +10,7 @@ You can fork this repo to modify and make changes of your own. Please give me pr
 
 # Built With
 
-My personal portfolio [osmx.me](https://osmx.me/) which features some of my github projects as well as my resume and technical skills.
+My personal portfolio [osmx.me](https://osmx.me/) which features some of my GitHub projects as well as my resume and technical skills.
 
 - Next.js
 - Tailwind CSS
@@ -22,13 +22,20 @@ My personal portfolio [osmx.me](https://osmx.me/) which features some of my gith
 # Getting Started
 
 - Clone down this repository
-- create `.env` file in the root directory
-- add `GRAPHQL_ENDPOINT` you can get end point for [Hygraph]([auth.hygraph.com](https://hygraph.com/))
-- and `EMAILJS_KEY` to get emailjs key and `EMAILJS_SERVICE_ID` `EMAILJS_TEMPLATE_ID` go to [EmailJs](https://www.emailjs.com/) 
-- run `npm install` 
-- To run the project `npm run dev`
+- Create a `.env` file in the root directory
+- Add `GRAPHQL_ENDPOINT` you can get the endpoint from [Hygraph]([auth.hygraph.com](https://hygraph.com/)
+- And `EMAILJS_KEY` to get emails key and `EMAILJS_SERVICE_ID` `EMAILJS_TEMPLATE_ID` go to [EmailJs](https://www.emailjs.com/)
+- Should be link this 
+```
+GRAPHQL_ENDPOINT=
+EMAILJS_KEY=
+EMAILJS_SERVICE_ID=
+EMAILJS_TEMPLATE_ID=
+```
+- Run `npm install` 
+- Run the project `npm run dev`
 
-Open `http://localhost:300` or `http://127.0.0.1:3000`
+Open `http://localhost:3000` or `http://127.0.0.1:3000`
 
 
 # Show your support
