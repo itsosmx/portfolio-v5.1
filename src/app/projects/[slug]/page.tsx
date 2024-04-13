@@ -74,7 +74,7 @@ export default async function ProjectSlug({ params }: { params: { slug: string }
               !post.demo && +"opacity-50"
             )}
             href={post.demo ? post.demo : "#"}>
-            <p>{post.demo ? "Live Demo" : "Not available"}</p>
+            <p>{post.demo ? "Live Demo" : "Demo Not available"}</p>
             <FaLink />
           </a>
           <a
@@ -84,7 +84,7 @@ export default async function ProjectSlug({ params }: { params: { slug: string }
               !post.github && "opacity-50"
             )}
             href={post.github ? post.github : "#"}>
-            <p>{post.github ? "Github Repo." : "Not available"}</p>
+            <p>{post.github ? "Github Repo." : "Code Not available"}</p>
             <FaGithub />
           </a>
         </div>
