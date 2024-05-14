@@ -27,7 +27,7 @@ export default function SlideIn({
       className={className}
       initial={{ opacity: 0, [axis as string]: direction * 50 }}
       animate={{ opacity: 1, [axis as string]: 0 }}
-      transition={{ duration, delay }}
+      whileInView={{ duration, delay }}
       {...props}>
       {children}
     </Tag>
