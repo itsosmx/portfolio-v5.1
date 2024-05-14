@@ -5,7 +5,6 @@ import { cn } from "@/utils";
 
 export const TextGenerateEffect = ({ words, className }: { words: string; className?: string }) => {
   const [scope, animate] = useAnimate();
-  
   let wordsArray = words.split(" ");
   useEffect(() => {
     animate(
@@ -14,8 +13,8 @@ export const TextGenerateEffect = ({ words, className }: { words: string; classN
         opacity: 1,
       },
       {
-        duration: 3,
-        delay: stagger(0.1),
+        duration: 2,
+        delay: stagger(0.2),
       }
     );
   }, [scope.current]);
@@ -25,7 +24,7 @@ export const TextGenerateEffect = ({ words, className }: { words: string; classN
       <motion.div ref={scope}>
         {wordsArray.map((word, idx) => {
           return (
-            <motion.span key={word + idx} >
+            <motion.span key={word + idx} className={cn("opacity-0", className)}>
               {word}{" "}
             </motion.span>
           );
@@ -35,9 +34,9 @@ export const TextGenerateEffect = ({ words, className }: { words: string; classN
   };
 
   return (
-    <div className={cn("font-bold", className)}>
-      <div>
-        <div className="leading-snug tracking-wide">{renderWords()}</div>
+    <div className={cn("font-bold")}>
+      <div className="mt-4">
+        <div className=" dark:text-white text-black text-2xl leading-snug tracking-wide">{renderWords()}</div>
       </div>
     </div>
   );
