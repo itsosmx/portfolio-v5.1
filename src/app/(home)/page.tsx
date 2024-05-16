@@ -6,7 +6,6 @@ import links from "@/utils/links";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import NodeJs from "@/assets/tech/nodejs.svg";
 
 export default async function Home() {
   const projects = await getProjects();
@@ -20,10 +19,6 @@ export default async function Home() {
             <TextGenerateEffect className="font-bold text-3xl text-slate-200 lg:leading-[0.5rem]" words="Hello," />
             <TextGenerateEffect className="font-bold text-6xl text-slate-200 lg:leading-[1rem]" words="This is OSMX" />
             <TextGenerateEffect className="font-bold text-4xl pl-1 text-accent" words="I'm a Professional Software Developer." />
-            {/* <TextGenerateEffect
-              className="font-light capitalize pl-1 text-wrap text-xl text-accent"
-              words="Specializing in Website Development, Mobile Applications, and Unity Games"
-            /> */}
             <Link
               className="inline-flex h-12 hover:animate-shimmer items-center justify-center rounded-md border border-accent ease-in-out transition-all bg-transparent hover:bg-[linear-gradient(110deg,transparent,45%,#9290c3,55%,transparent)] bg-[length:200%_100%] px-8 font-medium text-white mt-4"
               target="_blank"
