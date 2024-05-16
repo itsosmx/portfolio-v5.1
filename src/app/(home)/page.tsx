@@ -1,5 +1,4 @@
 import { SlideIn } from "@/components";
-import { HeroParallax } from "@/components/shared/Parallax";
 import { TextGenerateEffect } from "@/components/shared/TextGenerate";
 import { getProjects } from "@/lib/actions";
 import { cn } from "@/utils";
@@ -7,13 +6,14 @@ import links from "@/utils/links";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import NodeJs from "@/assets/tech/nodejs.svg";
 
 export default async function Home() {
   const projects = await getProjects();
 
   return (
-    <div className="flex flex-col">
-      <section className="lg:h-screen grid lg:grid-cols-2 grid-cols-1 gap-4 relative">
+    <main className="flex flex-col gap-4">
+      <section className="grid lg:grid-cols-2 grid-cols-1 gap-4 relative lg:h-screen">
         <video
           loop
           muted
@@ -25,8 +25,8 @@ export default async function Home() {
 
         <div className="flex flex-col justify-between col-span-1 lg:h-full h-screen lg:p-16 p-8">
           <SlideIn delay={0} direction={-1} className="flex flex-col items-start">
-            <TextGenerateEffect className="font-bold text-3xl text-slate-200 leading-[0.25rem]" words="Hello," />
-            <TextGenerateEffect className="font-bold text-6xl text-slate-200 leading-[0.25rem]" words="This is OSMX" />
+            <TextGenerateEffect className="font-bold text-3xl text-slate-200 lg:leading-[0.25rem]" words="Hello," />
+            <TextGenerateEffect className="font-bold text-6xl text-slate-200 lg:leading-[0.25rem]" words="This is OSMX" />
             <TextGenerateEffect className="font-bold text-4xl pl-1 text-accent" words="I'm a Professional Software Developer." />
             {/* <TextGenerateEffect
               className="font-light capitalize pl-1 text-wrap text-xl text-accent"
@@ -60,14 +60,14 @@ export default async function Home() {
         </SlideIn>
       </section>
 
-      <section className="flex flex-col gap-4 items-center p-16 min-h-[75dvh]">
-        <h2 className="lg:text-6xl font-bold underline">What I provide</h2>
-        <div className="grid lg:grid-cols-4 h-[50dvh] gap-4">
+      <section className="flex flex-col gap-4 items-center relative">
+        <h2 className="lg:text-6xl text-3xl font-bold">What I provide</h2>
+        <div className="grid lg:grid-cols-4 gap-4 grid-cols-1 p-16">
           {cards.map((card, index) => (
             <SlideIn
               direction={index % 2 === 0 ? 1 : -1}
               key={card.title}
-              className={cn("bg-white/10 backdrop-blur-lg p-4 rounded-lg transition-all", {
+              className={cn("bg-white/10 backdrop-blur-lg p-4 rounded-lg transition-all ", {
                 "hover:rotate-6": index === 0 || index === 2,
                 "hover:-rotate-6 -z-10": index === 3 || index === 1,
               })}>
@@ -78,8 +78,23 @@ export default async function Home() {
           ))}
         </div>
       </section>
+      <section className="flex-center flex-col">
+        <h2 className=" text-center lg:text-6xl text-3xl font-bold">My Tech Stack</h2>
+        <p className="text-center">
+          I leverage a modern tech stack to craft exceptional websites that are not only visually appealing but also perform well in search engines.
+        </p>
+        <div className="flex gap-4 p-16">
+          {techStack.map((tech, i) => (
+            <SlideIn key={tech.title} delay={i * 0.3} className="bg-white/10 flex-1 p-4 rounded-lg backdrop-blur-lg gap-4 flex-col flex group">
+              <Image src={tech.icon} alt={tech.title} height={100} width={100} />
+              <h3 className="font-bold text-accent text-3xl">{tech.title}</h3>
+              <p>{tech.description}</p>
+            </SlideIn>
+          ))}
+        </div>
+      </section>
       <section>
-        <HeroParallax
+        {/* <HeroParallax
           products={
             projects?.map((project) => {
               return {
@@ -89,10 +104,10 @@ export default async function Home() {
               };
             }) || []
           }
-        />
+        /> */}
       </section>
       <section className="min-h-16"></section>
-    </div>
+    </main>
   );
 }
 
@@ -128,5 +143,28 @@ const cards = [
     it's implementing real-time updates with Firebase, managing databases with MongoDB and SQL, or building RESTful APIs with Node.js and
     Express, I ensure the seamless integration of frontend and backend components. My commitment to delivering robust and reliable backend
     systems is exemplified in projects like Taskingo, where I enabled real-time task management using Firebase Realtime Database.`,
+  },
+];
+
+const techStack = [
+  {
+    icon: "/images/mongodb.svg",
+    title: "MongoDB",
+    description: `A flexible NoSQL database that allows for scalable and efficient data storage, perfect for modern web applications.`,
+  },
+  {
+    icon: "/images/expressjs.svg",
+    title: "Express.js",
+    description: `A lightweight web framework built on Node.js, providing a robust and efficient foundation for building web servers.`,
+  },
+  {
+    icon: "/images/react.svg",
+    title: "React.js",
+    description: `A JavaScript library for building user interfaces, React.js enables the creation of dynamic and interactive web applications.`,
+  },
+  {
+    icon: "/images/nodejs.svg",
+    title: "Node.js",
+    description: `A JavaScript runtime that allows for the development of scalable server-side applications, providing a powerful backend solution.`,
   },
 ];

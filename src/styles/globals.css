@@ -10,6 +10,9 @@
   --secondary: #1b1a55;
 }
 
+* {
+  @apply box-border
+}
 body {
   @apply bg-background antialiased text-slate-200 font-main;
 }
