@@ -11,7 +11,7 @@
 }
 
 * {
-  @apply box-border
+  @apply box-border;
 }
 body {
   @apply bg-background antialiased text-slate-200 font-main;
@@ -27,5 +27,8 @@ body {
   }
   .glass-box {
     @apply bg-glass-200 shadow-sm border-[1px] border-solid border-glass-300 hover:border-glass-500 outline-none;
+  }
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-accent to-cyan-500
   }
 }

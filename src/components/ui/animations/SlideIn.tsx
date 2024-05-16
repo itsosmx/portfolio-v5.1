@@ -26,10 +26,14 @@ export default function SlideIn({
     <Tag
       className={className}
       initial={{ opacity: 0, [axis as string]: direction * 50 }}
-      animate={{ opacity: 1, [axis as string]: 0 }}
-      whileInView={{ duration, delay }}
+      whileInView={{ opacity: 1, [axis as string]: 0 }}
+      transition={{ duration, delay }}
       {...props}>
       {children}
     </Tag>
   );
 }
+
+const s = () => {
+  return <motion.div></motion.div>;
+};

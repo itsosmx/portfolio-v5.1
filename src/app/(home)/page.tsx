@@ -1,4 +1,4 @@
-import { SlideIn } from "@/components";
+import { Footer, SlideIn, VideoBackground } from "@/components";
 import { TextGenerateEffect } from "@/components/shared/TextGenerate";
 import { getProjects } from "@/lib/actions";
 import { cn } from "@/utils";
@@ -14,26 +14,18 @@ export default async function Home() {
   return (
     <main className="flex flex-col gap-4">
       <section className="grid lg:grid-cols-2 grid-cols-1 gap-4 relative lg:h-screen">
-        <video
-          loop
-          muted
-          autoPlay
-          playsInline
-          preload="false"
-          className="w-full object-cover opacity-10 -z-10 absolute top-0 left-0"
-          src="/encryption.webm"></video>
-
+        <VideoBackground src="/encryption.webm" />
         <div className="flex flex-col justify-between col-span-1 lg:h-full h-screen lg:p-16 p-8">
           <SlideIn delay={0} direction={-1} className="flex flex-col items-start">
-            <TextGenerateEffect className="font-bold text-3xl text-slate-200 lg:leading-[0.25rem]" words="Hello," />
-            <TextGenerateEffect className="font-bold text-6xl text-slate-200 lg:leading-[0.25rem]" words="This is OSMX" />
+            <TextGenerateEffect className="font-bold text-3xl text-slate-200 lg:leading-[0.5rem]" words="Hello," />
+            <TextGenerateEffect className="font-bold text-6xl text-slate-200 lg:leading-[1rem]" words="This is OSMX" />
             <TextGenerateEffect className="font-bold text-4xl pl-1 text-accent" words="I'm a Professional Software Developer." />
             {/* <TextGenerateEffect
               className="font-light capitalize pl-1 text-wrap text-xl text-accent"
               words="Specializing in Website Development, Mobile Applications, and Unity Games"
             /> */}
             <Link
-              className="inline-flex h-12 hover:animate-shimmer items-center justify-center rounded-md border border-accent transition-all bg-transparent hover:bg-[linear-gradient(110deg,transparent,45%,#9290c3,55%,transparent)] bg-[length:200%_100%] px-8 font-medium text-white mt-4"
+              className="inline-flex h-12 hover:animate-shimmer items-center justify-center rounded-md border border-accent ease-in-out transition-all bg-transparent hover:bg-[linear-gradient(110deg,transparent,45%,#9290c3,55%,transparent)] bg-[length:200%_100%] px-8 font-medium text-white mt-4"
               target="_blank"
               href="/cv.pdf">
               Resume
@@ -61,34 +53,46 @@ export default async function Home() {
       </section>
 
       <section className="flex flex-col gap-4 items-center relative">
-        <h2 className="lg:text-6xl text-3xl font-bold">What I provide</h2>
+        <VideoBackground src="/blackhole.webm" />
+        <SlideIn renderAs="h2" axis="y" className="lg:text-6xl text-3xl font-bold">
+          What I provide
+        </SlideIn>
         <div className="grid lg:grid-cols-4 gap-4 grid-cols-1 p-16">
           {cards.map((card, index) => (
             <SlideIn
-              direction={index % 2 === 0 ? 1 : -1}
               key={card.title}
+              delay={index * 0.2}
               className={cn("bg-white/10 backdrop-blur-lg p-4 rounded-lg transition-all ", {
                 "hover:rotate-6": index === 0 || index === 2,
                 "hover:-rotate-6 -z-10": index === 3 || index === 1,
               })}>
               <Image src={card.image} alt={card.title} height={300} width={300} />
-              <h3 className="lg:text-2xl mb-4 text-center font-bold text-accent underline">{card.title}</h3>
+              <h3 className="text-3xl mb-4 text-center font-bold text-accent text-gradient">{card.title}</h3>
               <p className="text-justify text-sm">{card.description}</p>
             </SlideIn>
           ))}
         </div>
       </section>
       <section className="flex-center flex-col">
-        <h2 className=" text-center lg:text-6xl text-3xl font-bold">My Tech Stack</h2>
-        <p className="text-center">
-          I leverage a modern tech stack to craft exceptional websites that are not only visually appealing but also perform well in search engines.
-        </p>
-        <div className="flex gap-4 p-16">
-          {techStack.map((tech, i) => (
-            <SlideIn key={tech.title} delay={i * 0.3} className="bg-white/10 flex-1 p-4 rounded-lg backdrop-blur-lg gap-4 flex-col flex group">
+        <div>
+          <SlideIn axis="y" renderAs="h2" className=" text-center lg:text-6xl text-3xl font-bold">
+            My Tech Stack
+          </SlideIn>
+          <SlideIn axis="y" renderAs="h2" className="text-center text-sm px-4 lg:px-8">
+            I leverage a modern tech stack to craft exceptional websites that are not only visually appealing but also perform well in search engines.
+          </SlideIn>
+        </div>
+        <div className="flex gap-4 p-16 flex-col lg:flex-row ">
+          {techStack.map((tech, index) => (
+            <SlideIn
+              direction={index % 2 === 0 ? 1 : -1}
+              axis={index % 2 === 0 ? "x" : "y"}
+              key={tech.title}
+              delay={index * 0.2}
+              className="bg-white/10 flex-1 p-4 rounded-lg backdrop-blur-lg gap-4 flex-col flex group">
               <Image src={tech.icon} alt={tech.title} height={100} width={100} />
-              <h3 className="font-bold text-accent text-3xl">{tech.title}</h3>
-              <p>{tech.description}</p>
+              <h3 className="font-bold text-accent text-3xl text-gradient">{tech.title}</h3>
+              <p className="text-justify text-sm">{tech.description}</p>
             </SlideIn>
           ))}
         </div>
@@ -106,7 +110,7 @@ export default async function Home() {
           }
         /> */}
       </section>
-      <section className="min-h-16"></section>
+      <Footer />
     </main>
   );
 }

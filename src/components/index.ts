@@ -6,3 +6,5 @@ export { default as Loader } from "./ui/loader";
 export { default as SlideIn } from "./ui/animations/SlideIn";
 export { default as Highlight } from "./shared/Highlight";
 export { default as StarBackground } from "./ui/background-stars";
+export { default as VideoBackground } from './ui/video-background';
+export { default as Footer } from './ui/footer';
