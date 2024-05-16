@@ -96,7 +96,7 @@ export default async function Home() {
   );
 }
 
-export const cards = [
+const cards = [
   {
     image: "/images/web.svg",
     title: "Web Development",
