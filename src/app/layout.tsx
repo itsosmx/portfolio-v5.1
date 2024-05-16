@@ -1,6 +1,6 @@
 import { Roboto } from "next/font/google";
 import "@/styles/globals.css";
-import { BackgroundCursor } from "@/components";
+import { BackgroundCursor, StarBackground } from "@/components";
 import { Analytics } from "@vercel/analytics/react";
 import SiteMetadata from "@/constants/metadata";
 import { Toaster } from "react-hot-toast";
@@ -18,6 +18,7 @@ export default function RootLayout({
     <html lang="en" className={`${roboto.variable}`}>
       <body>
         <BackgroundCursor>{children}</BackgroundCursor>
+        <StarBackground />
         <Toaster position="bottom-center" />
         <Analytics />
       </body>
