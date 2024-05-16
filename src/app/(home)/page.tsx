@@ -8,7 +8,7 @@ import Link from "next/link";
 import React from "react";
 
 export default async function Home() {
-  const projects = await getProjects();
+  // const projects = await getProjects();
 
   return (
     <main className="flex flex-col gap-4">
