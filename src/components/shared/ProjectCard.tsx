@@ -39,10 +39,18 @@ export default function ProjectCard({ project }: { project: IProjectProps }) {
           <div className="flex gap-1 flex-wrap">
             {project.technologies?.map((tool) => (
               <span title={tool} className="card-background-dark p-2 rounded-full text-xs">
-                {
-                  // @ts-ignore
-                }
-                {icon(tool)?.image ? <Image alt={tool} height={20} width={20} src={icon(tool)?.image}></Image> : tool}
+                {icon(tool)?.image ? (
+                  <Image
+                    alt={tool}
+                    height={20}
+                    width={20}
+                    // @ts-ignore
+                    src={
+                      icon(tool)?.image
+                    }></Image>
+                ) : (
+                  tool
+                )}
               </span>
             ))}
           </div>
