@@ -6,8 +6,18 @@ import React, { useState } from "react";
 
 import { motion } from "framer-motion";
 import { cn } from "@/utils";
+import skills from "@/utils/skills";
 
 export default function ProjectCard({ project }: { project: IProjectProps }) {
+  const icon = (name: string) => {
+    return skills.find(
+      (item) =>
+        item.name.toLowerCase() === name.toLowerCase() ||
+        item.id?.toLowerCase() === name.toLowerCase() ||
+        item.fallback?.toLowerCase() === name.toLowerCase()
+    );
+  };
+
   return (
     <motion.div
       className={cn("group card-background-dark rounded-lg overflow-hidden size-96 relative")}
@@ -26,9 +36,14 @@ export default function ProjectCard({ project }: { project: IProjectProps }) {
               {project.headline}
             </p>
           </div>
-          <div className="flex gap-1 flex-wrap lg:gap-4">
-            {project.toolset?.map((tool) => (
-              <span className="card-background-dark px-2 rounded-full">{tool}</span>
+          <div className="flex gap-1 flex-wrap">
+            {project.technologies?.map((tool) => (
+              <span title={tool} className="card-background-dark p-2 rounded-full text-xs">
+                {
+                  // @ts-ignore
+                }
+                {icon(tool)?.image ? <Image alt={tool} height={20} width={20} src={icon(tool)?.image}></Image> : tool}
+              </span>
             ))}
           </div>
         </div>

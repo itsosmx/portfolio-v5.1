@@ -9,20 +9,22 @@ export default function Skills() {
   return (
     <Container>
       <motion.div initial="hide" animate="show" variants={variants} className="flex flex-wrap items-center w-full justify-between gap-4 mt-10">
-        {skills.map((item) => (
-          <motion.div variants={Item} key={item.name} className="flex items-center ">
-            <div
-              className="relative flex items-center gap-2"
-              style={{
-                color: RandomColor(),
-              }}>
-              <div className="relative size-9 lg:size-36">
-                <Image src={item.image} className="object-fill" fill alt="skill" />
+        {skills
+          .filter((x) => !x.hidden)
+          .map((item) => (
+            <motion.div variants={Item} key={item.name} className="flex items-center ">
+              <div
+                className="relative flex items-center gap-2"
+                style={{
+                  color: RandomColor(),
+                }}>
+                <div className="relative size-9 lg:size-36">
+                  <Image src={item.image} className="object-fill" fill alt="skill" />
+                </div>
+                <p className="lg:text-9xl text-4xl font-bold">{item.name}</p>
               </div>
-              <p className="lg:text-9xl text-4xl font-bold">{item.name}</p>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
       </motion.div>
     </Container>
   );

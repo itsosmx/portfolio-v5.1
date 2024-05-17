@@ -36,11 +36,11 @@ const links = {
     },
     {
       icon: FaXTwitter,
-      href: "https://twitter.com/ItsOsMx",
+      href: "https://twitter.com/itsosmx",
     },
     {
       icon: FaLinkedin,
-      href: "https://www.linkedin.com/in/itsosmx/",
+      href: "https://www.linkedin.com/in/itsosmx",
     },
   ]
 }

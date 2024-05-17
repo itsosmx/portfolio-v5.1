@@ -45,6 +45,8 @@ export default [
   {
     "icon": "devicon-react-original",
     "name": "React Native",
+    "id": "ReactNative",
+    "fallback": "Expo",
     "section": "front end",
     "image": "https://skillicons.dev/icons?i=react"
   },
@@ -60,10 +62,10 @@ export default [
     "section": "front end",
     "image": "https://skillicons.dev/icons?i=bootstrap"
   },
-
   {
     "icon": "devicon-nodejs-plain",
     "name": "Node",
+    "id": "NodeJs",
     "section": "back end",
     "image": "https://skillicons.dev/icons?i=nodejs"
   },
@@ -82,6 +84,7 @@ export default [
   {
     "icon": "devicon-mongodb-plain",
     "name": "Mongodb",
+    "id": "mongoose",
     "section": "back end",
     "image": "https://skillicons.dev/icons?i=mongodb"
   },
@@ -112,6 +115,7 @@ export default [
   {
     "icon": "devicon-csharp-plain",
     "name": "C#",
+    "id": "CSharp",
     "section": "back end",
     "image": "https://skillicons.dev/icons?i=cs"
   },
@@ -198,5 +202,10 @@ export default [
     "name": "Oracle",
     "section": "tools",
     "image": "https://skillicons.dev/icons?i=oracle"
+  },
+  {
+    name: "XML",
+    hidden: true,
+    image: "https://skillicons.dev/icons?i=htmx",
   }
 ]
