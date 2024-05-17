@@ -22,7 +22,7 @@ export default function Card({ key, direction = "left", duration = 0.5, delay = 
   };
 
   const axis = direction === "top" || direction === "bottom" ? "y" : "x";
-  const value = direction === "top" || direction === "left" ? -50 : 50;
+  const value = direction === "top" || direction === "left" ? -100 : 100;
 
   return (
     <motion.section
@@ -39,7 +39,7 @@ export default function Card({ key, direction = "left", duration = 0.5, delay = 
         setIsHovering(false);
         setMousePosition({ x: 0, y: 0 });
       }}
-      className={cn("p-4 card-background-dark rounded-lg cursor-default", className)}>
+      className={cn("p-4 card-background-dark rounded-lg cursor-default overflow-hidden", className)}>
       <motion.div
         initial={{ opacity: 0, [axis as string]: value }}
         whileInView={{ opacity: 1, [axis as string]: 0 }}
