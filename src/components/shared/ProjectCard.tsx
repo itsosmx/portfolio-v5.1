@@ -2,35 +2,33 @@
 import { IProjectProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 import { motion } from "framer-motion";
+import { cn } from "@/utils";
 
 export default function ProjectCard({ project }: { project: IProjectProps }) {
   return (
     <motion.div
+      className={cn("group card-background-dark rounded-lg overflow-hidden size-96 relative")}
       key={project.id}
-      initial={{ opacity: 0, y: 300 }}
-      whileInView={{ opacity: 1 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      className="group">
-      <Link
-        href={`/projects/${project.slug}`}
-        key={project.id}
-        className="flex flex-col lg:flex-row gap-4 group-hover:bg-accent group-hover:ring-2 group-hover:ring-secondary hover:text-background transition-all duration-500 p-4 cursor-pointer shadow-md">
-        <div className="min-h-40 min-w-72 relative">
-          <Image src={project.thumbnail.url} alt="thumbnail" fill className="object-contain size-full" />
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}>
+      <Link href={`/projects/${project.slug}`} key={project.id} className={cn("flex flex-col gap-4 p-4 cursor-pointer shadow-md h-full")}>
+        <div className="min-h-40 min-w-72 relative aspect-video rounded-lg overflow-hidden">
+          <Image src={project.thumbnail.url} alt="thumbnail" fill className="object-cover size-full" />
         </div>
-        <div className="flex flex-col w-72 mx-auto lg:w-auto lg:m-0">
-          <h1 className="font-semibold text-2xl">{project.title}</h1>
-          <p>{project.headline}</p>
-          <div className="flex-1"></div>
+        <div className="flex flex-col justify-between flex-1">
+          <div>
+            <h1 className="font-semibold text-xl">{project.title}</h1>
+            <p className="text-[#BEC1DD] isolate line-clamp-2" title={project.headline}>
+              {project.headline}
+            </p>
+          </div>
           <div className="flex gap-1 flex-wrap lg:gap-4">
             {project.toolset?.map((tool) => (
-              <span className="bg-accent text-background group-hover:text-accent delay-75 group-hover:bg-background font-semibold p-1 px-4 rounded-full text-sm">
-                {tool}
-              </span>
+              <span className="card-background-dark px-2 rounded-full">{tool}</span>
             ))}
           </div>
         </div>

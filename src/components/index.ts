@@ -10,3 +10,4 @@ export { default as VideoBackground } from './ui/video-background';
 export { default as Footer } from './ui/footer';
 export { default as Button } from './ui/button'
 export { default as Card } from './ui/card'
+export { default as Container } from './ui/container'

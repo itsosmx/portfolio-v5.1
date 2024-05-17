@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { BackButton, SlideIn } from "@/components";
+import { BackButton, Container, SlideIn } from "@/components";
 // import { sendEmail } from "@/lib/actions/emails";
 import emailjs, { init } from "@emailjs/browser";
 import toast from "react-hot-toast";
@@ -32,8 +32,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex justify-center items-center gap-4 flex-col w-full py-16 lg:h-screen">
-      <BackButton />
+    <Container className="flex justify-center items-center gap-4 flex-col w-full lg:h-screen">
       <div className="text-center">
         <h1 className="text-4xl font-bold">Thanks for taking the time to reach out.</h1>
         <p className="text-2xl tracking-widest">How can I help you today?</p>
@@ -78,6 +77,6 @@ export default function Contact() {
           </a>
         </SlideIn>
       </form>
-    </div>
+    </Container>
   );
 }

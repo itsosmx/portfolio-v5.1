@@ -3,13 +3,12 @@ import React from "react";
 import skills from "@/utils/skills";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { PageHeader } from "@/components";
+import { Container } from "@/components";
 
 export default function Skills() {
   return (
-    <div className="p-16">
-      <PageHeader title="Skills" />
-      <motion.div initial="hide" animate="show" variants={Container} className="flex flex-wrap items-center w-full justify-between gap-4 mt-10">
+    <Container>
+      <motion.div initial="hide" animate="show" variants={variants} className="flex flex-wrap items-center w-full justify-between gap-4 mt-10">
         {skills.map((item) => (
           <motion.div variants={Item} key={item.name} className="flex items-center ">
             <div
@@ -25,11 +24,11 @@ export default function Skills() {
           </motion.div>
         ))}
       </motion.div>
-    </div>
+    </Container>
   );
 }
 
-const Container = {
+const variants = {
   show: {
     opacity: 1,
     transition: {

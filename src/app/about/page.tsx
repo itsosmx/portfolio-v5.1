@@ -1,4 +1,4 @@
-import { BackButton, Highlight, SlideIn } from "@/components";
+import { Container, Highlight, SlideIn } from "@/components";
 import React from "react";
 
 export default function page() {
@@ -15,8 +15,7 @@ export default function page() {
   }
 
   return (
-    <div className="flex items-center flex-col lg:p-16 p-8 py-16">
-      <BackButton />
+    <Container>
       <div className="text-center gap-1 flex flex-col my-4">
         <SlideIn renderAs="h1" axis="y" direction={-1} className="font-bold lg:text-5xl text-3xl">
           Hi, I’m OSMX. Nice to meet you.
@@ -30,7 +29,7 @@ export default function page() {
           Who is OSMX ?
         </SlideIn>
         <SlideIn direction={-1} className="text-justify lg:text-xl text-sm">
-          I'm <Highlight>Osama Hussein</Highlight>, a {GetMyAge()}-year-old computer science student at{" "}
+          I'm <Highlight>Osama Hussein</Highlight>, a {GetMyAge()}-year-old Computer Science Engineer at{" "}
           <Highlight>
             <a target="_blank" href="https://www.nub.edu.eg/">
               Nahda University
@@ -71,6 +70,6 @@ export default function page() {
           passionate about using technology to make a positive impact, and I'm committed to creating innovative solutions that enhance people's lives.
         </SlideIn>
       </div>
-    </div>
+    </Container>
   );
 }
