@@ -14,10 +14,14 @@ const config: Config = {
         "glass-300": "rgba(255, 255, 255, 0.3)",
         "glass-400": "rgba(255, 255, 255, 0.4)",
         "glass-500": "rgba(255, 255, 255, 0.5)",
-        "background": "var(--background)",
-        "text": "var(--text)",
-        "secondary": "var(--secondary)",
-        "accent": "var(--accent)",
+        "background": "#030014",
+        "primary": {
+          DEFAULT: "#06091F",
+          light: "#161A31"
+        },
+        "text": "#CBACF9",
+        "secondary": "#1b1a55",
+        "accent": "#6971A2",
       },
       fontFamily: {
         'main': ['var(--font-main)'],
