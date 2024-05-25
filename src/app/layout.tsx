@@ -4,6 +4,7 @@ import { BackgroundCursor, StarBackground } from "@/components";
 import { Analytics } from "@vercel/analytics/react";
 import SiteMetadata from "@/constants/metadata";
 import { Toaster } from "react-hot-toast";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const roboto = Roboto({ weight: ["100", "300", "400", "500", "700", "900"], subsets: ["latin"], variable: "--font-main", display: "swap" });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         <StarBackground />
         <Toaster position="bottom-center" />
         <Analytics />
+        <SpeedInsights/>
       </body>
     </html>
   );
