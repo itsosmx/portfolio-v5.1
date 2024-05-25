@@ -19,6 +19,16 @@ export default function Skills() {
                   color: RandomColor(),
                 }}>
                 <div className="relative size-9 lg:size-36">
+                  {item?.fire && (
+                    <motion.div
+                      title="Hot Skill!"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 2 }}
+                      className="lg:size-10 size-4 absolute -top-2 z-10 -right-1">
+                      <Image src="/images/rocket.gif" className="object-fill" fill alt="skill" />
+                    </motion.div>
+                  )}
                   <Image src={item.image} className="object-fill" fill alt="skill" />
                 </div>
                 <p className="lg:text-9xl text-4xl font-bold">{item.name}</p>

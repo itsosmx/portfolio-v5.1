@@ -3,7 +3,8 @@ export default [
     "icon": "devicon-typescript-plain",
     "name": "Typescript",
     "section": "front end",
-    "image": "https://skillicons.dev/icons?i=ts"
+    "image": "https://skillicons.dev/icons?i=ts",
+    "fire": true,
   },
   {
     "icon": "devicon-html5-plain",
@@ -17,18 +18,18 @@ export default [
     "section": "front end",
     "image": "https://skillicons.dev/icons?i=js"
   },
-
   {
     "icon": "devicon-react-original",
     "name": "React",
     "section": "front end",
-    image: "https://skillicons.dev/icons?i=react"
+    "image": "https://skillicons.dev/icons?i=react"
   },
   {
     "icon": "devicon-react-original",
     "name": "Next",
     "section": "front end",
-    image: "https://skillicons.dev/icons?i=nextjs"
+    "fire": true,
+    "image": "https://skillicons.dev/icons?i=nextjs"
   },
   {
     "icon": "devicon-css3-plain",
@@ -39,22 +40,25 @@ export default [
   {
     "icon": "devicon-tailwindcss-original-wordmark",
     "name": "Tailwind",
+    "fire": true,
     "section": "front end",
     "image": "https://skillicons.dev/icons?i=tailwind"
-  },
-  {
-    "icon": "devicon-react-original",
-    "name": "React Native",
-    "id": "ReactNative",
-    "fallback": "Expo",
-    "section": "front end",
-    "image": "https://skillicons.dev/icons?i=react"
   },
   {
     "icon": "devicon-materialui-plain",
     "name": "MUI",
     "section": "front end",
     "image": "https://skillicons.dev/icons?i=materialui"
+  },
+  {
+    "icon": "devicon-react-original",
+    "name": "React Native",
+    "id": "ReactNative",
+    "fire": true,
+
+    "fallback": "Expo",
+    "section": "front end",
+    "image": "https://skillicons.dev/icons?i=react"
   },
   {
     "icon": "devicon-bootstrap-plain",
@@ -66,6 +70,8 @@ export default [
     "icon": "devicon-nodejs-plain",
     "name": "Node",
     "id": "NodeJs",
+    "fire": true,
+
     "section": "back end",
     "image": "https://skillicons.dev/icons?i=nodejs"
   },
@@ -79,11 +85,14 @@ export default [
     "icon": "devicon-cplusplus-plain",
     "name": "C++",
     "section": "back end",
-    "image": "https://skillicons.dev/icons?i=cpp"
+    "image": "https://skillicons.dev/icons?i=cpp",
+    "hidden": true,
   },
   {
     "icon": "devicon-mongodb-plain",
     "name": "Mongodb",
+    "fire": true,
+
     "id": "mongoose",
     "section": "back end",
     "image": "https://skillicons.dev/icons?i=mongodb"
@@ -92,30 +101,40 @@ export default [
     "icon": "devicon-express-original",
     "name": "Express",
     "section": "back end",
+    "fire": true,
+
     "image": "https://skillicons.dev/icons?i=express"
   },
   {
     "icon": "devicon-python-plain",
     "name": "Python",
     "section": "back end",
-    "image": "https://skillicons.dev/icons?i=python"
+    "image": "https://skillicons.dev/icons?i=python",
+    "hidden": true,
   },
   {
     "icon": "devicon-mysql-plain",
     "name": "MySql",
     "section": "back end",
+    "hidden": true,
+
     "image": "https://skillicons.dev/icons?i=mysql"
+
   },
   {
     "icon": "devicon-kotlin-plain",
     "name": "Kotlin",
     "section": "back end",
+    "hidden": true,
+
     "image": "https://skillicons.dev/icons?i=kotlin"
   },
   {
     "icon": "devicon-csharp-plain",
     "name": "C#",
     "id": "CSharp",
+    "fire": true,
+
     "section": "back end",
     "image": "https://skillicons.dev/icons?i=cs"
   },
@@ -128,14 +147,9 @@ export default [
   {
     "icon": "devicon-dot-net-plain",
     "name": ".NET",
+    "hidden": true,
     "section": "back end",
     "image": "https://skillicons.dev/icons?i=dotnet"
-  },
-  {
-    "icon": "devicon-express-original",
-    "name": "Express",
-    "section": "back end",
-    "image": "https://skillicons.dev/icons?i=express"
   },
   {
     "icon": "devicon-git-plain",
@@ -152,6 +166,8 @@ export default [
   {
     "icon": "devicon-unity-original",
     "name": "Unity",
+    "fire": true,
+
     "section": "tools",
     "image": "https://skillicons.dev/icons?i=unity"
   },
@@ -159,23 +175,31 @@ export default [
     "icon": "devicon-vscode-plain",
     "name": "VS Code",
     "section": "tools",
+    "fire": true,
+
     "image": "https://skillicons.dev/icons?i=vscode"
   },
   {
     "icon": "devicon-photoshop-plain",
     "name": "Photoshop",
+    "hidden": true,
+
     "section": "tools",
     "image": "https://skillicons.dev/icons?i=photoshop"
   },
   {
     "icon": "devicon-github-original",
     "name": "Github",
+        "fire": true,
+
     "section": "tools",
     "image": "https://skillicons.dev/icons?i=github"
   },
   {
     "icon": "devicon-amazonwebservices-original",
     "name": "AWS",
+    "hidden": true,
+
     "section": "tools",
     "image": "https://skillicons.dev/icons?i=aws"
   },
@@ -200,6 +224,8 @@ export default [
   {
     "icon": "devicon-oracle-original",
     "name": "Oracle",
+    "hidden": true,
+
     "section": "tools",
     "image": "https://skillicons.dev/icons?i=oracle"
   },
