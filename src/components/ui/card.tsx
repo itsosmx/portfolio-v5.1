@@ -25,27 +25,24 @@ export default function Card({ key, direction = "left", duration = 0.5, delay = 
   const value = direction === "top" || direction === "left" ? -100 : 100;
 
   return (
-    <motion.section
-      key={key}
-      style={{
-        transform: isHovering
-          ? `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0) scale3d(1, 1, 1) rotate3d(0, 0, ${mousePosition.y}, 3deg)`
-          : "translate3d(0px, 0px, 0) scale3d(1, 1, 1)",
-        transition: "transform 0.1s ease-out",
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => {
-        setIsHovering(false);
-        setMousePosition({ x: 0, y: 0 });
-      }}
-      className={cn("p-4 card-background-dark rounded-lg cursor-default overflow-hidden", className)}>
-      <motion.div
-        initial={{ opacity: 0, [axis as string]: value }}
-        whileInView={{ opacity: 1, [axis as string]: 0 }}
-        transition={{ duration, delay }}>
+    <motion.div initial={{ opacity: 0, [axis as string]: value }} whileInView={{ opacity: 1, [axis as string]: 0 }} transition={{ duration, delay }}>
+      <motion.section
+        key={key}
+        style={{
+          transform: isHovering
+            ? `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0) scale3d(1, 1, 1) rotate3d(0, 0, ${mousePosition.y}, 3deg)`
+            : "translate3d(0px, 0px, 0) scale3d(1, 1, 1)",
+          transition: "transform 0.1s ease-out",
+        }}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => {
+          setIsHovering(false);
+          setMousePosition({ x: 0, y: 0 });
+        }}
+        className={cn("p-4 card-background-dark rounded-lg cursor-default overflow-hidden", className)}>
         {children}
-      </motion.div>
-    </motion.section>
+      </motion.section>
+    </motion.div>
   );
 }
