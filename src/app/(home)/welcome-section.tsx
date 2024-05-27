@@ -12,7 +12,7 @@ export default function WelcomeSection() {
       <div className="flex flex-col justify-between col-span-1 lg:h-full h-screen lg:p-16 p-8">
         <SlideIn delay={0} direction={-1} className="flex flex-col items-start">
           <TextGenerateEffect className="font-bold text-3xl text-slate-200 lg:leading-[0.5rem]" words="Hello," />
-          <TextGenerateEffect className="font-bold text-6xl text-slate-200 lg:leading-[1rem]" words="This is OSMX" />
+          <TextGenerateEffect className="font-bold text-6xl text-slate-200 lg:leading-[1rem]" words="This is Osama" />
           <TextGenerateEffect className="font-bold text-4xl pl-1 text-accent" words="I'm a Professional Software Developer." />
           <Button
             as="a"
