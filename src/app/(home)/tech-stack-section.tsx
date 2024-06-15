@@ -1,27 +1,35 @@
-import { Card, SlideIn } from "@/components";
+import { Card, CardStack, SlideIn } from "@/components";
 import Image from "next/image";
 import React from "react";
 
 export default function TechStackSection() {
   return (
-    <section className="flex-center flex-col">
-      <div>
-        <SlideIn axis="y" renderAs="h2" className=" text-center lg:text-6xl text-3xl font-bold">
+    <section className="flex items-center justify-center lg:flex-row flex-col lg:min-h-[75dvh]">
+      <div className="lg:max-w-[40%] max-w-[65%]">
+        <SlideIn axis="y" renderAs="h2" className="text-gradient-white text-center lg:text-6xl text-3xl font-bold uppercase">
           My Tech Stack
         </SlideIn>
         <SlideIn axis="y" renderAs="h2" className="text-center text-sm px-4 lg:px-8">
           I leverage a modern tech stack to craft exceptional websites that are not only visually appealing but also perform well in search engines.
         </SlideIn>
       </div>
-      <div className="flex gap-4 p-16 flex-col lg:flex-row ">
-        {techStack.map((tech, index) => (
-          <Card key={tech.title} direction={index % 2 === 0 ? "left" : "right"} duration={0.5} delay={0.2 * index}>
-            <Image src={tech.icon} alt={tech.title} height={100} width={100} />
-            <h3 className="font-bold text-accent text-3xl text-gradient">{tech.title}</h3>
-            <p className="text-justify text-sm">{tech.description}</p>
-          </Card>
-        ))}
-      </div>
+      <SlideIn axis="y" delay={0.5} className="flex p-16 justify-center">
+        <CardStack
+          items={techStack.map((tech) => {
+            return {
+              id: Math.random(),
+              name: tech.title,
+              designation: "Tech Stack",
+              content: (
+                <>
+                  <Image src={tech.icon} alt={tech.title} height={50} width={50} />
+                  {tech.description}
+                </>
+              ),
+            };
+          })}
+        />
+      </SlideIn>
     </section>
   );
 }
@@ -46,5 +54,10 @@ const techStack = [
     icon: "/images/nodejs.svg",
     title: "Node.js",
     description: `A JavaScript runtime that allows for the development of scalable server-side applications, providing a powerful backend solution.`,
+  },
+  {
+    icon: "/images/nextjs.svg",
+    title: "Next.js",
+    description: `A React framework that enables server-side rendering and static site generation, providing a performant and SEO-friendly solution.`,
   },
 ];

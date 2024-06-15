@@ -36,4 +36,7 @@ body {
   .card-background-dark {
     @apply bg-gradient-to-r from-[#04071D] to-[#0C0E23] border-[1px] border-solid border-primary-light;
   }
+  .text-gradient-white {
+    @apply bg-gradient-to-br from-slate-300 to-slate-500 text-transparent bg-clip-text tracking-tight;
+  }
 }

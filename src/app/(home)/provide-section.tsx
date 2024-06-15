@@ -1,44 +1,50 @@
-import { Card, VideoBackground } from "@/components";
-import Image from "next/image";
+import { CardStack, SlideIn, VideoBackground } from "@/components";
 import React from "react";
 
 export default function ProvideSection() {
   return (
-    <section className="flex flex-col gap-4 items-center relative">
+    <section className="flex items-center justify-center lg:flex-row-reverse flex-col lg:min-h-[75dvh]">
       <VideoBackground src="/blackhole.webm" />
-      <div className="grid lg:grid-cols-4 gap-4 grid-cols-1 p-16">
-        {cards.map((card, index) => (
-          <Card direction={index % 2 === 0 ? "left" : "right"} duration={0.5} delay={0.2 * index} key={index}>
-            <div className="grid place-items-center">
-              <Image src={card.image} alt={card.title} height={200} width={200} className="" />
-            </div>
-            <h3 className="text-3xl mb-4 text-center font-bold text-accent text-gradient">{card.title}</h3>
-            <p className="text-justify text-sm">{card.description}</p>
-          </Card>
-        ))}
+
+      <div className="lg:max-w-[40%] max-w-[65%]">
+        <SlideIn axis="y" renderAs="h2" className="text-gradient-white text-center lg:text-6xl text-3xl font-bold uppercase">
+          What I Provide
+        </SlideIn>
+        <SlideIn axis="y" renderAs="h2" className="text-center text-sm px-4 lg:px-8">
+          I'm a full-stack developer with a passion for creating beautiful, responsive, and user-friendly web applications, mobile apps, and games.
+        </SlideIn>
       </div>
+
+      <SlideIn axis="y" delay={0.5} className="flex p-16 justify-center">
+        <CardStack
+          items={cards.map((tech) => {
+            return {
+              id: Math.random(),
+              name: tech.title,
+              designation: "Expertise",
+              content: <>{tech.description}</>,
+            };
+          })}
+        />
+      </SlideIn>
     </section>
   );
 }
 
 const cards = [
   {
-    image: "/images/web.svg",
     title: "Web Development",
     description: `I'm always ready to make a custom portable robust product that fits the need of any client!`,
   },
   {
-    image: "/images/mobile.svg",
     title: "Mobile Development",
     description: `I love creating apps than change the way we interact with our mobile devices.`,
   },
   {
-    image: "/images/games.svg",
     title: "Games Development",
     description: `Making games has always been my passion, i'm always excited about working on them.`,
   },
   {
-    image: "/images/backend.svg",
     title: "Backend Development",
     description: `Designing robust backend systems to ensure smooth and efficient application performance.`,
   },
