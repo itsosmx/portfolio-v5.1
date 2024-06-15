@@ -3,8 +3,8 @@ import React from "react";
 
 export default function ProvideSection() {
   return (
-    <section className="flex items-center justify-center lg:flex-row-reverse flex-col lg:min-h-[75dvh]">
-      <VideoBackground src="/blackhole.webm" />
+    <section className="flex items-center justify-center lg:flex-row-reverse flex-col lg:min-h-[75dvh] relative">
+      <VideoBackground src="/blackhole.webm" className="top-[25%]" />
 
       <div className="lg:max-w-[40%] max-w-[65%]">
         <SlideIn axis="y" renderAs="h2" className="text-gradient-white text-center lg:text-6xl text-3xl font-bold uppercase">
