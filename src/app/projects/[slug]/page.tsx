@@ -1,4 +1,4 @@
-import { PageHeader, SlideIn } from "@/components";
+import { PageHeader, SlideIn, Slider } from "@/components";
 import { getProjects } from "@/lib/actions";
 import { cn } from "@/utils";
 import Image from "next/image";
@@ -10,7 +10,7 @@ export default async function ProjectSlug({ params }: { params: { slug: string }
   const post = projects?.find((project) => project.slug === params.slug);
 
   if (!post) {
-    throw new Error("Post not found");
+    throw new Error("Project not found");
   }
 
   return (
@@ -58,7 +58,7 @@ export default async function ProjectSlug({ params }: { params: { slug: string }
           </div>
         </SlideIn>
         <SlideIn direction={-1} className="lg:w-1/2 lg:h-auto w-full h-[50vh] relative">
-          <Image src={post.thumbnail?.url} fill alt="image" className="size-full object-contain" />
+          {post.image.length < 2 ? <Image src={post.thumbnail?.url} fill alt="image" className="size-full object-contain" /> : <Slider post={post} />}
         </SlideIn>
       </div>
       <SlideIn axis="y" className="grid lg:grid-cols-3 grid-cols-1 mt-8 gap-4">

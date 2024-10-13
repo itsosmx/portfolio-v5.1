@@ -27,6 +27,9 @@ export async function getProjects() {
             thumbnail {
               url
             }
+            image {
+              url
+            }
             toolset
             updatedAt
             operated
@@ -64,6 +67,9 @@ export async function getProjectBySlug(slug: string) {
             slug
             technologies
             thumbnail {
+              url
+            }
+            image {
               url
             }
             toolset

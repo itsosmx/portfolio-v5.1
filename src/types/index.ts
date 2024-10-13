@@ -18,4 +18,5 @@ export interface IProjectProps {
   toolset: string[];
   updatedAt: string;
   operated: string;
+  image: { url: string}[];
 }
