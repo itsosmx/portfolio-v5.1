@@ -72,8 +72,8 @@ export default function Contact() {
         </SlideIn>
         <SlideIn axis="y" delay={0.5} className="flex gap-4 text-center items-center justify-center">
           <p>or email me directly at</p>
-          <a target="_blank" href="mailto:business@osmx.me" className="underline font-bold">
-          business@osmx.me
+          <a target="_blank" href="mailto:itsosmx@gmail.com" className="underline font-bold">
+            itsosmx@gmail.com
           </a>
         </SlideIn>
       </form>

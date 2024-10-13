@@ -29,6 +29,7 @@ export default [
     "name": "Next",
     "section": "front end",
     "fire": true,
+    "id": "NextJs",
     "image": "https://skillicons.dev/icons?i=nextjs"
   },
   {
@@ -190,8 +191,7 @@ export default [
   {
     "icon": "devicon-github-original",
     "name": "Github",
-        "fire": true,
-
+    "fire": true,
     "section": "tools",
     "image": "https://skillicons.dev/icons?i=github"
   },
@@ -233,5 +233,10 @@ export default [
     name: "XML",
     hidden: true,
     image: "https://skillicons.dev/icons?i=htmx",
+  },
+  {
+    name: "SocketIO",
+    hidden: true,
+    image: "https://skillicons.dev/icons?i=socketio",
   }
 ]
