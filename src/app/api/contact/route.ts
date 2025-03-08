@@ -21,7 +21,10 @@ export async function POST(request: Request) {
       from: `"${form.name}" <${form.email}>`,
       to: process.env.SMTP_USER,
       subject: "New Message from Portfolio",
-      html: `<p>${form.message}</p>`
+      html: `<p>${form.message}</p>
+      <p>From: ${form.name}</p>
+      <p>Email: ${form.email}</p>
+      `
     })
 
 
