@@ -12,13 +12,20 @@ export default function Contact() {
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
+      const data = new FormData(e.target as HTMLFormElement);
+      const name = data.get("name") as string;
+      const email = data.get("email") as string;
+      const message = data.get("message") as string;
+
       toast.promise(
-        emailjs.sendForm(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
-          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
-          e.target as HTMLFormElement,
-          process.env.NEXT_PUBLIC_EMAILJS_KEY as string
-        ),
+        fetch("/api/contact", {
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+          }),
+          method: "POST",
+        }),
         {
           loading: "Sending...",
           success: "Message sent successfully!",
