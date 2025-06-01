@@ -1,7 +1,7 @@
 import { Container, Highlight, SlideIn } from "@/components";
 import React from "react";
 
-export default function page() {
+export default function AboutPage() {
   function GetMyAge() {
     const today = new Date();
     const birthDate = new Date("2000-12-20");
@@ -16,60 +16,78 @@ export default function page() {
 
   return (
     <Container>
-      <div className="text-center gap-1 flex flex-col my-4">
-        <SlideIn renderAs="h1" axis="y" direction={-1} className="font-bold lg:text-5xl text-3xl">
-          Hi, I’m OSMX. Nice to meet you.
+      {/* Hero Section */}
+      <section className="min-h-[40vh] flex flex-col items-center justify-center gap-6 py-12">
+        <SlideIn renderAs="h1" axis="y" direction={-1} className="font-bold lg:text-6xl text-4xl text-center">
+          Hi, I'm <span className="text-gradient-white">OSMX</span>
         </SlideIn>
-        <SlideIn axis="y" className="text-gray lg:text-xl text-md">
-          Software Developer Designing and Developing Websites, Applications and Games
+        <SlideIn axis="y" className="text-gray lg:text-2xl text-lg text-center max-w-2xl">
+          Software Developer crafting digital experiences through websites, applications, and games
         </SlideIn>
-      </div>
-      <div className="w-full px-4 flex flex-col gap-8 text-2xl mb-8 tracking-wide font-play">
-        <SlideIn renderAs="h2" className="lg:text-3xl text-xl font-semibold mt-4 underline">
-          Who is OSMX ?
-        </SlideIn>
-        <SlideIn direction={-1} className="text-justify lg:text-xl text-sm">
-          I'm <Highlight>Osama Hussein</Highlight>, a {GetMyAge()}-year-old Computer Science Engineer at{" "}
-          <Highlight>
-            <a target="_blank" href="https://www.nub.edu.eg/">
-              Nahda University
-            </a>
-          </Highlight>{" "}
-          in Egypt. 2024 is my expected graduation year. I'm a self-taught developer who enjoys developing web apps, mobile applications, and games.
-          I'm passionate about using my skills to make a positive impact on the world. I'm also a gamer and enjoy playing video games in my free time,
-          especially MMORPGs.
-        </SlideIn>
-        <SlideIn renderAs="h2" className="lg:text-3xl text-xl underline font-semibold mt-4">
-          My journey:{" "}
-        </SlideIn>
-        <SlideIn className="text-justify lg:text-xl text-sm">
-          My journey began in 2015 when i discover something called blogger, where I shared my passion for technology through writing technical
-          articles. But as I delved deeper into the world of blogging, I became fascinated with the idea of creating my own website. And so, I
-          embarked on a journey of self-discovery, learning <Highlight>HTML</Highlight>, <Highlight>CSS</Highlight>, and{" "}
-          <Highlight>JavaScript</Highlight> to bring my vision to life.
-        </SlideIn>
+      </section>
 
-        <SlideIn className="text-justify lg:text-xl text-sm">
-          As I experimented with building simple websites, I found myself asking,
-          <span className="font-bold text-3xl">What else can I do ?</span> My curiosity led me to explore APIs, and that's when everything changed. I
-          discovered <Highlight>Node.js</Highlight> and began developing Discord Applications (Bots) using Discord API, which proved to be a
-          game-changer for me. The idea of being able to create something that people could use and enjoy was incredibly satisfying.
-        </SlideIn>
+      {/* About Section */}
+      <section className="max-w-4xl mx-auto px-4 space-y-12 py-12">
+        <div className="space-y-6">
+          <SlideIn renderAs="h2" className="text-3xl font-bold text-center">
+            Who is OSMX?
+          </SlideIn>
+          <SlideIn direction={-1} className="text-lg leading-relaxed">
+            I'm <Highlight>Osama Hussein</Highlight>, a {GetMyAge()}-year-old Computer Science Engineer at{" "}
+            <Highlight>
+              <a target="_blank" href="https://www.nub.edu.eg/" className="hover:text-primary transition-colors">
+                Nahda University
+              </a>
+            </Highlight>{" "}
+            in Egypt, graduating in 2024. As a self-taught developer, I specialize in web apps, mobile applications, and games. When I'm not coding,
+            you'll find me immersed in MMORPGs and exploring new gaming experiences.
+          </SlideIn>
+        </div>
 
-        <SlideIn className="text-justify lg:text-xl text-sm">
-          With each new project, I gained more experience and skills. I taught myself <Highlight>Mongoose</Highlight>, <Highlight>React.js</Highlight>
-          , <Highlight>React Native</Highlight>, <Highlight>Python</Highlight>, <Highlight>Kotlin</Highlight>, and other technologies, constantly
-          expanding my toolbox. One of my proudest achievements was creating a Discord bot that could do anything the Discord API offered.The bot has
-          spread widely, reaching more than <Highlight>300,000 user</Highlight>. The process was challenging, but it taught me invaluable lessons
-          about determination, patience, and creativity.
-        </SlideIn>
+        {/* Journey Section */}
+        <div className="space-y-8">
+          <SlideIn renderAs="h2" className="text-3xl font-bold text-center">
+            My Journey
+          </SlideIn>
 
-        <SlideIn className="text-justify lg:text-xl text-sm">
-          As I continue on my journey, I'm excited to see where it will take me next. I believe that{" "}
-          <span className="font-bold">learning is a lifelong process</span> , and I'm always seeking new challenges to broaden my horizons. I'm
-          passionate about using technology to make a positive impact, and I'm committed to creating innovative solutions that enhance people's lives.
-        </SlideIn>
-      </div>
+          <div className="space-y-8">
+            <SlideIn className="bg-card p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-4">The Beginning (2015)</h3>
+              <p className="text-lg leading-relaxed">
+                My journey began with Blogger, where I shared my passion for technology through technical articles. This led me to discover the world
+                of web development, where I learned <Highlight>HTML</Highlight>, <Highlight>CSS</Highlight>, and <Highlight>JavaScript</Highlight> to
+                create my own digital space.
+              </p>
+            </SlideIn>
+
+            <SlideIn className="bg-card p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-4">The Evolution</h3>
+              <p className="text-lg leading-relaxed">
+                My curiosity led me to explore APIs, particularly the Discord API. This opened doors to creating Discord Applications (Bots) using{" "}
+                <Highlight>Node.js</Highlight>. One of my proudest achievements was developing a Discord bot that reached over{" "}
+                <Highlight>300,000 users</Highlight>.
+              </p>
+            </SlideIn>
+
+            <SlideIn className="bg-card p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-4">The Growth</h3>
+              <p className="text-lg leading-relaxed">
+                I expanded my skillset to include <Highlight>Mongoose</Highlight>, <Highlight>React.js</Highlight>,<Highlight>React Native</Highlight>
+                , <Highlight>Python</Highlight>, and <Highlight>Kotlin</Highlight>. Each new technology added to my toolbox, helping me create more
+                sophisticated and impactful solutions.
+              </p>
+            </SlideIn>
+
+            <SlideIn className="bg-card p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-4">The Future</h3>
+              <p className="text-lg leading-relaxed">
+                I believe in <span className="font-bold">lifelong learning</span> and am constantly seeking new challenges. My passion lies in using
+                technology to make a positive impact and create innovative solutions that enhance people's lives.
+              </p>
+            </SlideIn>
+          </div>
+        </div>
+      </section>
     </Container>
   );
 }

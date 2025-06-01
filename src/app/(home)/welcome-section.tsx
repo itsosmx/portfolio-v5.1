@@ -7,41 +7,65 @@ import React from "react";
 
 export default function WelcomeSection() {
   return (
-    <section className="grid lg:grid-cols-2 grid-cols-1 gap-4 relative lg:h-screen">
-      <VideoBackground src="/encryption.webm" />
-      <div className="flex flex-col justify-between col-span-1 lg:h-full h-screen lg:p-16 p-8">
-        <SlideIn delay={0} direction={-1} className="flex flex-col items-start">
-          <TextGenerateEffect className="font-bold text-3xl text-slate-200 lg:leading-[0.5rem]" words="Hello," />
-          <TextGenerateEffect className="font-bold text-6xl text-slate-200 lg:leading-[1rem]" words="This is Osama" />
-          <TextGenerateEffect className="font-bold text-4xl pl-1 text-accent" words="I'm a Professional Software Developer." />
-          <Button
-            as="a"
-            className="mt-4 px-8"
-            // className="inline-flex h-12 hover:animate-shimmer items-center justify-center rounded-md border border-accent ease-in-out transition-all bg-transparent hover:bg-[linear-gradient(110deg,transparent,45%,#9290c3,55%,transparent)] bg-[length:200%_100%] px-8 font-medium text-white mt-4"
-            target="_blank"
-            href="/cv.pdf">
-            Resume
-          </Button>
-        </SlideIn>
-        <SlideIn direction={-1} delay={0.3} className="gap-2 flex flex-col text-stone-100">
-          {links.routes.map((route) => (
-            <Link key={route.slug} href={route.slug} className="group font-bold flex items-center uppercase text-sm hover:underline">
-              <span className="w-16 h-[1px] bg-slate-400 mr-2 group-hover:w-11 transition-all duration-200"></span>
-              {route.name}
-            </Link>
-          ))}
-        </SlideIn>
-        <SlideIn axis="y" className="flex gap-8 text-2xl text-slate-200">
-          {links.social.map((route) => (
-            <a target="_blank" key={route.href} href={route.href} className="flex flex-col items-center hover:-translate-y-2 transition-all">
-              {<route.icon />}
-            </a>
-          ))}
-        </SlideIn>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <VideoBackground src="/encryption.webm" className="opacity-50" />
+
+      <div className="container mx-auto px-4 z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <TextGenerateEffect className="text-4xl md:text-5xl font-bold text-slate-200" words="Hello, I'm" />
+              <TextGenerateEffect
+                className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-accent to-purple-500 bg-clip-text text-transparent"
+                words="Osama Hussein"
+              />
+              <TextGenerateEffect className="text-2xl md:text-3xl font-medium text-slate-300" words="Full Stack Developer & Game Enthusiast" />
+            </div>
+
+            <p className="text-slate-300 text-lg max-w-xl">
+              Crafting digital experiences through clean code and creative solutions. Specializing in web development, mobile apps, and game
+              development.
+            </p>
+
+            <div className="flex gap-4">
+              <Button as="a" className="px-8 py-3 bg-accent hover:bg-accent/90 transition-all" target="_blank" href="/cv.pdf">
+                View Resume
+              </Button>
+              <Button as="a" className="px-8 py-3 border border-accent hover:bg-accent/10 transition-all" href="/contact">
+                Contact Me
+              </Button>
+            </div>
+
+            <div className="flex gap-6 pt-4">
+              {links.social.map((route) => (
+                <a key={route.href} href={route.href} target="_blank" className="text-2xl text-slate-300 hover:text-accent transition-colors">
+                  <route.icon />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Content - 3D Model or Illustration */}
+          <div className="relative h-[500px] hidden lg:block">
+            <Image src="/mainIconsdark.svg" alt="Osama Hussein" fill className="object-contain animate-float" />
+          </div>
+        </div>
+
+        {/* Navigation Links */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:block">
+          <div className="flex gap-8">
+            {links.routes.map((route) => (
+              <Link key={route.slug} href={route.slug} className="group font-medium text-slate-300 hover:text-accent transition-colors">
+                <span className="relative">
+                  {route.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
-      <SlideIn className="col-span-1 leading-8 lg:h-full h-screen hidden lg:flex flex-col justify-between items-center relative">
-        <Image src="/mainIconsdark.svg" fill alt="Osama Hussein" className="absolute object-contain" />
-      </SlideIn>
     </section>
   );
 }

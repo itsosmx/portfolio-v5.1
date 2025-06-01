@@ -5,66 +5,69 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Container } from "@/components";
 
+const SkillCard = ({ skill }: { skill: any }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="relative group bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300">
+      <div className="flex items-center gap-4">
+        <div className="relative size-12">
+          {skill?.fire && (
+            <motion.div
+              title="Hot Skill!"
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="absolute -top-2 -right-2 z-10 size-6">
+              <Image src="/images/rocket.gif" className="object-fill" fill alt="hot skill" />
+            </motion.div>
+          )}
+          <Image src={skill.image} className="object-contain" fill alt={skill.name} />
+        </div>
+        <div>
+          <h3 className="text-xl font-semibold text-white">{skill.name}</h3>
+          <p className="text-sm text-gray-400 capitalize">{skill.section}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const SkillSection = ({ title, skills }: { title: string; skills: any[] }) => {
+  return (
+    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.5 }} className="space-y-4">
+      <h2 className="text-2xl font-bold text-white capitalize">{title}</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {skills.map((skill) => (
+          <SkillCard key={skill.name} skill={skill} />
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
 export default function Skills() {
+  const visibleSkills = skills.filter((x) => !x.hidden);
+  const frontendSkills = visibleSkills.filter((skill) => skill.section === "front end");
+  const backendSkills = visibleSkills.filter((skill) => skill.section === "back end");
+  const toolSkills = visibleSkills.filter((skill) => skill.section === "tools");
+
   return (
     <Container>
-      <motion.div initial="hide" animate="show" variants={variants} className="flex flex-wrap items-center w-full justify-between gap-4 mt-10">
-        {skills
-          .filter((x) => !x.hidden)
-          .map((item) => (
-            <motion.div variants={Item} key={item.name} className="flex items-center ">
-              <div
-                className="relative flex items-center gap-2"
-                style={{
-                  color: RandomColor(),
-                }}>
-                <div className="relative size-9 lg:size-36">
-                  {item?.fire && (
-                    <motion.div
-                      title="Hot Skill!"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 2 }}
-                      className="lg:size-10 size-4 absolute -top-2 z-10 -right-1">
-                      <Image src="/images/rocket.gif" className="object-fill" fill alt="skill" />
-                    </motion.div>
-                  )}
-                  <Image src={item.image} className="object-fill" fill alt="skill" />
-                </div>
-                <p className="lg:text-9xl text-4xl font-bold">{item.name}</p>
-              </div>
-            </motion.div>
-          ))}
-      </motion.div>
+      <div className="space-y-12 py-8">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center space-y-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white">Technical Skills</h1>
+          <p className="text-gray-400 max-w-2xl mx-auto">A comprehensive overview of my technical expertise and tools I use to bring ideas to life</p>
+        </motion.div>
+
+        <div className="space-y-12">
+          <SkillSection title="Frontend Development" skills={frontendSkills} />
+          <SkillSection title="Backend Development" skills={backendSkills} />
+          <SkillSection title="Tools & Technologies" skills={toolSkills} />
+        </div>
+      </div>
     </Container>
   );
 }
-
-const variants = {
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const Item = {
-  show: {
-    opacity: 1,
-    x: 0,
-  },
-  hide: {
-    opacity: 0,
-    x: 100,
-  },
-};
-
-const RandomColor = () => {
-  const h = Math.floor(Math.random() * 360);
-  const _h = Math.floor(Math.random() * 10);
-  const s = 50;
-  const l = 75;
-
-  return `hsl(${h + _h}, ${s}%, ${l}%)`;
-};

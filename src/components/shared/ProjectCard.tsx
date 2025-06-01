@@ -2,8 +2,7 @@
 import { IProjectProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
-
+import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/utils";
 import skills from "@/utils/skills";
@@ -20,37 +19,45 @@ export default function ProjectCard({ project }: { project: IProjectProps }) {
 
   return (
     <motion.div
-      className={cn("group card-background-dark rounded-lg overflow-hidden size-96 relative")}
+      className={cn(
+        "group relative h-[420px] w-full lg:max-w-md rounded-xl bg-gradient-to-b from-gray-900/50 to-gray-900/30 p-1 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20"
+      )}
       key={project.id}
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}>
-      <Link href={`/projects/${project.slug}`} key={project.id} className={cn("flex flex-col gap-4 p-4 cursor-pointer shadow-md h-full")}>
-        <div className="min-h-40 min-w-72 relative aspect-video rounded-lg overflow-hidden">
-          <Image src={project.thumbnail.url} alt="thumbnail" fill className="object-cover size-full" />
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}>
+      <Link
+        href={`/projects/${project.slug}`}
+        className="flex h-full flex-col gap-4 rounded-lg bg-gray-900/50 p-4 transition-all duration-300 hover:bg-gray-900/70">
+        <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+          <Image
+            src={project.thumbnail.url}
+            alt={`${project.title} thumbnail`}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
-        <div className="flex flex-col justify-between flex-1">
-          <div>
-            <h1 className="font-semibold text-xl">{project.title}</h1>
-            <p className="text-[#BEC1DD] isolate line-clamp-2" title={project.headline}>
+
+        <div className="flex flex-1 flex-col justify-between gap-3">
+          <div className="space-y-2">
+            <h2 className="text-xl font-semibold tracking-tight text-white transition-colors duration-300 group-hover:text-purple-400">
+              {project.title}
+            </h2>
+            <p className="line-clamp-2 text-sm text-gray-300" title={project.headline}>
               {project.headline}
             </p>
           </div>
-          <div className="flex gap-1 flex-wrap">
+
+          <div className="flex flex-wrap gap-2">
             {project.technologies?.map((tool) => (
-              <span title={tool} className="card-background-dark p-2 rounded-full text-xs">
-                {icon(tool)?.image ? (
-                  <Image
-                    alt={tool}
-                    height={20}
-                    width={20}
-                    // @ts-ignore
-                    src={
-                      icon(tool)?.image
-                    }></Image>
-                ) : (
-                  tool
-                )}
+              <span
+                key={tool}
+                title={tool}
+                className="flex items-center gap-1.5 rounded-full bg-gray-800/50 px-3 py-1.5 text-xs text-gray-300 transition-colors duration-300 hover:bg-purple-500/20 hover:text-purple-300">
+                {icon(tool)?.image ? <Image alt={tool} height={16} width={16} src={icon(tool)?.image || ""} className="rounded-sm" /> : null}
+                <span>{tool}</span>
               </span>
             ))}
           </div>

@@ -1,35 +1,54 @@
-import { Card, CardStack, SlideIn } from "@/components";
+import { SlideIn } from "@/components";
 import Image from "next/image";
 import React from "react";
 
 export default function TechStackSection() {
   return (
-    <section className="flex items-center justify-center lg:flex-row flex-col lg:min-h-[75dvh]">
-      <div className="lg:max-w-[40%] max-w-[65%]">
-        <SlideIn axis="y" renderAs="h2" className="text-gradient-white text-center lg:text-6xl text-3xl font-bold uppercase">
-          My Tech Stack
-        </SlideIn>
-        <SlideIn axis="y" renderAs="h2" className="text-center text-sm px-4 lg:px-8">
-          I leverage a modern tech stack to craft exceptional websites that are not only visually appealing but also perform well in search engines.
-        </SlideIn>
+    <section className="relative min-h-screen py-20 flex items-center justify-center">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16 space-y-4">
+          <SlideIn axis="y" renderAs="h2" className="text-gradient-white text-4xl md:text-6xl font-bold">
+            Tech Stack
+          </SlideIn>
+          <SlideIn axis="y" renderAs="p" className="text-slate-300 text-lg max-w-2xl mx-auto">
+            I leverage cutting-edge technologies to build scalable, performant, and maintainable applications. Here's what I work with:
+          </SlideIn>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {techStack.map((tech, index) => (
+            <SlideIn key={tech.title} axis="y" delay={index * 0.1}>
+              <div className="group relative h-[350px]">
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl transition-all duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-accent/20 to-purple-500/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
+
+                <div className="relative h-full p-8 flex flex-col justify-between">
+                  {/* Top Section */}
+                  <div className="space-y-6">
+                    <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                      <div className="relative w-8 h-8 group-hover:rotate-12 transition-transform duration-500">
+                        <Image
+                          src={tech.icon}
+                          alt={tech.title}
+                          fill
+                          className="object-contain filter brightness-100 invert-0 transition-all duration-500"
+                        />
+                      </div>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-colors duration-300">{tech.title}</h3>
+                  </div>
+
+                  {/* Middle Section - Description */}
+                  <div className="flex-1 flex items-center">
+                    <p className="text-slate-300 text-lg leading-relaxed group-hover:text-white transition-colors duration-300">{tech.description}</p>
+                  </div>
+                </div>
+              </div>
+            </SlideIn>
+          ))}
+        </div>
       </div>
-      <SlideIn axis="y" delay={0.5} className="flex p-16 justify-center">
-        <CardStack
-          items={techStack.map((tech) => {
-            return {
-              id: Math.random(),
-              name: tech.title,
-              designation: "Tech Stack",
-              content: (
-                <>
-                  <Image src={tech.icon} alt={tech.title} height={50} width={50} />
-                  {tech.description}
-                </>
-              ),
-            };
-          })}
-        />
-      </SlideIn>
     </section>
   );
 }
@@ -38,26 +57,26 @@ const techStack = [
   {
     icon: "/images/mongodb.svg",
     title: "MongoDB",
-    description: `A flexible NoSQL database that allows for scalable and efficient data storage, perfect for modern web applications.`,
+    description: `A powerful NoSQL database that revolutionizes data storage with its flexible document model, enabling rapid development and seamless scalability for modern applications.`,
   },
   {
     icon: "/images/expressjs.svg",
     title: "Express.js",
-    description: `A lightweight web framework built on Node.js, providing a robust and efficient foundation for building web servers.`,
+    description: `A minimalist yet powerful Node.js web framework that streamlines API development with its robust middleware system and elegant routing capabilities.`,
   },
   {
     icon: "/images/react.svg",
     title: "React.js",
-    description: `A JavaScript library for building user interfaces, React.js enables the creation of dynamic and interactive web applications.`,
+    description: `A revolutionary JavaScript library that transforms UI development through its component-based architecture and virtual DOM, enabling the creation of highly responsive and maintainable applications.`,
   },
   {
     icon: "/images/nodejs.svg",
     title: "Node.js",
-    description: `A JavaScript runtime that allows for the development of scalable server-side applications, providing a powerful backend solution.`,
+    description: `A game-changing JavaScript runtime that empowers developers to build lightning-fast, event-driven applications with its non-blocking I/O model and vast ecosystem.`,
   },
   {
     icon: "/images/nextjs.svg",
     title: "Next.js",
-    description: `A React framework that enables server-side rendering and static site generation, providing a performant and SEO-friendly solution.`,
+    description: `A cutting-edge React framework that elevates web development with its hybrid rendering capabilities, automatic code splitting, and built-in performance optimizations.`,
   },
 ];
