@@ -20,7 +20,7 @@ export default function WelcomeSection() {
                 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-accent to-purple-500 bg-clip-text text-transparent"
                 words="Osama Hussein"
               />
-              <TextGenerateEffect className="text-2xl md:text-3xl font-medium text-slate-300" words="Full Stack Developer & Game Enthusiast" />
+              <TextGenerateEffect className="text-2xl md:text-3xl font-medium text-slate-300" words="Full Stack Developer" />
             </div>
 
             <p className="text-slate-300 text-lg max-w-xl">
